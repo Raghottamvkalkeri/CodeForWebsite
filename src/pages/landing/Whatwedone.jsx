@@ -9,9 +9,9 @@ const impacts = [
   {
     main: (
       <>
-        Manage <span className="font-semibold">Oracle Commerce Cloud</span> for a
+        Managing <span className="font-semibold">Oracle Commerce Cloud</span> for a
         leading <span className="font-bold">US-based manufacturer</span> in
-        safety, infrastructure, and industrial systems.
+        safety, infrastructure, and industrial systems 
       </>
     ),
     sub: "Powering digital commerce across sectors including public safety, sewer cleaning, material transport, and warning systems.",

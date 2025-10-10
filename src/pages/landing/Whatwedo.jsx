@@ -65,8 +65,7 @@ const WhatWeDo = () => {
             <div className="bg-white shadow-md rounded-xl p-6">
               <h3 className="page-secondary-header pb-[8px]">Data</h3>
               <p className="text-gray-600 page-paragraph">
-                Turn Insight into Impact. Harness the power of modern data
-                platforms to drive confident decisions.
+                Turn Insight into Impact. Harness the power of modern data platforms to drive confident decisions.
               </p>
             </div>
 
@@ -75,8 +74,7 @@ const WhatWeDo = () => {
                 Custom Solutions
               </h3>
               <p className="text-gray-600 page-paragraph">
-                Apps built around you. Modern web, mobile, and cloud solutions
-                tailored to your business needs.
+                Apps built around you. Modern web, mobile, and cloud solutions tailored to your business needs.
               </p>
             </div>
           </div>
@@ -87,8 +85,9 @@ const WhatWeDo = () => {
               Enterprise Platform <span className="font-light">at the Core.</span>
             </h3>
             <p className="page-paragraph">
-              SAP, Oracle, NetSuite, Infor—implement, optimize, and evolve with
-              confidence.
+              {/* SAP, Oracle, NetSuite, Infor—implement, optimize, and evolve with
+              confidence. */}
+              Implement, optimize, and evolve with confidence.
             </p>
           </div>
 
@@ -97,8 +96,7 @@ const WhatWeDo = () => {
             <div className="bg-white shadow-md rounded-xl p-6">
               <h3 className="page-secondary-header pb-[8px]">Integration</h3>
               <p className="text-gray-600 page-paragraph">
-                Connected by design. Seamless, secure connections across
-                platforms, partners, and devices.
+                Connected by design. Seamless, secure connections across platforms, partners, and devices.
               </p>
             </div>
 
@@ -107,8 +105,7 @@ const WhatWeDo = () => {
                 Artificial Intelligence
               </h3>
               <p className="text-gray-600 page-paragraph">
-                Smarter, faster, predictive. From automation to intelligence—
-                make workflows intelligent and outcomes better.
+                Smarter, faster, predictive. From automation to intelligence—make workflows intelligent and outcomes better.
               </p>
             </div>
           </div>
