@@ -78,7 +78,7 @@ export default function ProofOfImpact() {
       </div>
 
       {/* Swiper */}
-      <div className="max-w-4xls mx-auto mt-12 bg-[#4b4262] p-10">
+      <div className="max-w-4xls mx-auto mt-12 bg-[#4B4262] p-10">
         <Swiper
           ref={swiperRef}
           modules={[Navigation]}
