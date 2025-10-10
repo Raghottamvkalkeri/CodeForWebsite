@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import './hero.css'
-import heroimg from '../../assets/hero.jpg'
+// import './hero.css'
+import dots from '../../assets/dotspng.png'
 
 const words = ['ENTERPRISE PLATFORMS', 'DATA', 'INTEGRATION', 'AI SOLUTIONS']
 
@@ -34,23 +34,44 @@ const Hero = () => {
   }, [currentText, isDeleting, wordIndex])
 
   return (
-    <section className="hero-section relative w-full h-screen flex items-center">
-      {/* Content */}
-      <div className="relative z-10 w-full px-6 lg:px-16">
-        <div className="max-w-2xl text-left">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Driving Excellence, Delivering Value,<br />
-            One solution at a time
-          </h1>
+    // <section className="hero-sections hero-bg relative w-full h-screen flex items-center">
+    //   {/* Content */}
+    //   <div className="relative z-10 w-full px-6 lg:px-16">
+    //     <div className="max-w-2xl text-left">
+    //       <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight inter-text">
+    //         Driving Excellence, Delivering Value,<br />
+    //         One solution at a time
+    //       </h1>
   
-          <div className=" md:text-3xl font-bold text-white h-10">
-            <span className='text-4xl '>{currentText}</span>
-            <span className="blinking-cursor">_</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    //       {/* <div className=" md:text-3xl font-bold text-white h-10">
+    //         <span className='text-4xl inter-text'>{currentText}</span>
+    //         <span className="blinking-cursor">_</span>
+    //       </div> */}
+    //     </div>
+    //   </div>
+    // </section>
 
+
+    <section className="bg-gray-50 py-16 px-6 md:px-80 mt-10">
+    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Text */}
+       <div>
+       <h1 className="ft-header">
+            Driving Excellence, Delivering Value,
+            One solution at a time
+       </h1>
+       </div>
+
+        {/* Right Image */}
+        <div className="flex justify-center lg:justify-end">
+            <img
+                src={dots}
+                alt="Aveto Dots"
+                className="rounded-2xls shadow-lgs w-fulls max-w-md object-covers w-60"
+            />
+        </div>
+    </div>
+</section>
   
 )
 }

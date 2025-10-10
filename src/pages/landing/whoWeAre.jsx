@@ -35,7 +35,7 @@ const WhoWeAre = () => {
     const isInView = useInView(ref, { once: true, margin: '-100px' });
 
     return (
-        <section className="w-full bg-white py-20 px-6">
+        <section className="w-full bg-white py-20 lg:px-80 xl:px-80 2xl:px-80 px-6">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
                 {/* Left Section */}
                 <div className="w-full md:w-1/2 space-y-6">

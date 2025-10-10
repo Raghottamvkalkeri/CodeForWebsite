@@ -2,7 +2,7 @@ import React from 'react';
 
 const OurVision = () => {
   return (
-    <section className="w-full py-16 px-6 md:px-16 bg-white">
+    <section className="w-full py-16 px-6 md:px-80 lg:px-80 xl:px-80 2xl:px-80 bg-white">
       {/* First Vision Section */}
       <div className="max-w-8xl mx-auto flex flex-col md:flex-row items-center gap-10 mb-10">
         {/* Left Image */}

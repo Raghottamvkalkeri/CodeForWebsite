@@ -1,51 +1,59 @@
+import React, { useEffect, useState } from 'react';
 import Marquee from 'react-fast-marquee';
-import logo1 from '../../assets/clientLogos/curatal.png'
-import logo2 from '../../assets/clientLogos/fr.png'
-import logo3 from '../../assets/clientLogos/alexani.png'
-import logo4 from '../../assets/clientLogos/efi.png'
-import logo5 from '../../assets/clientLogos/gesi.png'
-import logo6 from '../../assets/clientLogos/slk.png'
-import logo7 from '../../assets/clientLogos/smartennovations.png'
-import logo8 from '../../assets/clientLogos/wavelogix.png'
-import logo9 from '../../assets/clientLogos/ahmetturk.png'
-import logo10 from '../../assets/clientLogos/pointblank.png'
-import logo11 from '../../assets/clientLogos/piratelabs.png'
-import logo12 from '../../assets/clientLogos/property plus.png'
-import logo13 from '../../assets/clientLogos/lexisnexis.png'
-import logo14 from '../../assets/clientLogos/kandha.png'
-import logo15 from '../../assets/clientLogos/onibex.png'
-import logo16 from '../../assets/clientLogos/mcfadyen.png'
 
-
-
-
-const logos_arr1 = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8,];
-const logos_arr2 = [logo9, logo10, logo11, logo12, logo13, logo14, logo15, logo16,]
 const Clients = () => {
+    const [logosArr1, setLogosArr1] = useState([]);
+    const [logosArr2, setLogosArr2] = useState([]);
+
+    useEffect(() => {
+        const cachedLogos = localStorage.getItem("clientLogos");
+      
+        if (cachedLogos) {
+          const data = JSON.parse(cachedLogos);
+          const half = Math.ceil(data.length / 2);
+          setLogosArr1(data.slice(0, half));
+          setLogosArr2(data.slice(half));
+        } else {
+          fetch("https://avetoconsulting.com/apis/clients.php")
+            .then((response) => response.json())
+            .then((data) => {
+              if (Array.isArray(data)) {
+                localStorage.setItem("clientLogos", JSON.stringify(data)); // cache
+                const half = Math.ceil(data.length / 2);
+                setLogosArr1(data.slice(0, half));
+                setLogosArr2(data.slice(half));
+              }
+            })
+            .catch((error) => console.error("Error fetching client logos:", error));
+        }
+      }, []);
+
     return (
-        <section className="py-16 px-25">
-            <h2 className="text-center text-3xl font-bold mb-10 text-slate-800">Our Clients</h2>
+        <section className="py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+            <h2 className="page-subheader">Our Clients</h2>
 
             {/* Top Row - Left to Right */}
             <Marquee gradient={true} gradientWidth={50} speed={25} className="mb-6" pauseOnHover>
-                {logos_arr1.map((logo, idx) => (
+                {logosArr1.map((logo, idx) => (
                     <img
                         key={'top-' + idx}
-                        src={logo}
+                        src={logo.logo_url}
                         alt={`Client ${idx}`}
-                        className="h-12 md:h-16 mx-8 object-contain"
+                        className="h-12 md:h-20 mx-8 object-contain"
+                        loading="lazy"
                     />
                 ))}
             </Marquee>
 
             {/* Bottom Row - Right to Left */}
-            <Marquee gradient={true} gradientWidth={50} speed={25} direction="right" pauseOnHover>
-                {logos_arr2.map((logo, idx) => (
+            <Marquee gradient={true} gradientWidth={50} speed={25} direction="right" className="mt-20 mb-6" pauseOnHover>
+                {logosArr2.map((logo, idx) => (
                     <img
                         key={'bottom-' + idx}
-                        src={logo}
+                        src={logo.logo_url}
                         alt={`Client ${idx}`}
-                        className="h-12 md:h-16 mx-8 object-contain"
+                        className="h-12 md:h-20 mx-8 object-contain"
+                        loading="lazy"
                     />
                 ))}
             </Marquee>

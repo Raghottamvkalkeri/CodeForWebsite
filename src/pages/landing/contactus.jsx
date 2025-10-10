@@ -3,7 +3,7 @@ import React from 'react';
 const ContactUsSection = () => {
   return (
     <section
-      className="w-full bg-cover bg-center bg-no-repeat py-20 px-6 md:px-16"
+      className="w-full bg-cover bg-center bg-no-repeat py-20 px-6 md:px-16 lg:px-80 xl:px-80 2xl:px-80"
       style={{
         backgroundImage:
           "url('https://images.pexels.com/photos/196650/pexels-photo-196650.jpeg')",
@@ -46,6 +46,7 @@ const ContactUsSection = () => {
                 type="tel"
                 id="phone"
                 placeholder="+91 12345 67890"
+                inputMode="numeric"
                 className="mt-1 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>

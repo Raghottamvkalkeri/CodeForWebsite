@@ -27,7 +27,7 @@ const OurValues = () => {
     ];
 
     return (
-        <section className="w-full px-6 md:px-20 py-16 bg-gray-100">
+        <section className="w-full px-20 lg:px-80 xl:px-80 2xl:px-80 md:px-80 py-16 bg-gray-100">
             <div className="max-w-7xl mx-auto text-center mb-16">
                 <h2 className="text-4xl font-heading font-bold text-slate-900 mb-4">Our Values</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
