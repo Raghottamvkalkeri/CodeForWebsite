@@ -49,12 +49,13 @@ const PartnersSection = () => {
                 )}
 
                 {/* Title */}
-                <h3 className="page-secondary-header lg:!text-[24px]">
-                  {partner.short_title}
-                </h3>
+                {/* <p className="page-secondary-headers lg:!text-[19px]">
+                 
+                </p> */}
 
                 {/* Description */}
                 <p className="page-paragraph text-gray-600 mt-2 lg:!text-[16px] flex-grow">
+                {partner.short_title} &nbsp;
                   {partner.short_description}
                 </p>
 

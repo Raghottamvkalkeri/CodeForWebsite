@@ -14,7 +14,7 @@ const services = [
 ];
 
 const partners = [
-  { name: 'Ahmettuerk', path: '/partners/Ahmettuerk' },
+  // { name: 'Ahmettuerk', path: '/partners/Ahmettuerk' },
   { name: 'Onibex', path: '/partners/Onibex' },
 ];
 
@@ -44,9 +44,8 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300 ${
-        scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
-      }`}
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300 ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
@@ -100,7 +99,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/case-studies" className={navLinkClass('/case-studies')}>Case Studies</Link>
+            <Link to="/case-studies" className={navLinkClass('/case-studies')}>Proof of Impact</Link>
 
             {/* Partners Dropdown */}
             <div

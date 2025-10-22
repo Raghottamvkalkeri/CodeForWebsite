@@ -33,7 +33,7 @@ const WhatWeDo = () => {
         {/* Added Section: From Image */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div>
-            <h3 className="page-secondary-header pb-2">Consulting</h3>
+            <h3 className="page-secondary-header pb-2 !text-[24px]">Consulting</h3>
             <p className="text-gray-600 page-paragraph">
               We help organizations align technology with business goals through
               strategy, process, and transformation advisory.
@@ -41,7 +41,7 @@ const WhatWeDo = () => {
           </div>
 
           <div>
-            <h3 className="page-secondary-header pb-2">Technology Services</h3>
+            <h3 className="page-secondary-header pb-2 !text-[24px]">Technology Services</h3>
             <p className="text-gray-600 page-paragraph">
               We design, build, and manage enterprise platforms, integrations,
               and data-driven solutions that deliver measurable impact.
@@ -49,7 +49,7 @@ const WhatWeDo = () => {
           </div>
 
           <div>
-            <h3 className="page-secondary-header pb-2">Workforce Solutions</h3>
+            <h3 className="page-secondary-header pb-2 !text-[24px]">Workforce Solutions</h3>
             <p className="text-gray-600 page-paragraph">
               We enable agility through on-demand expertise, bridging skill gaps
               and accelerating business transformation.
@@ -58,19 +58,19 @@ const WhatWeDo = () => {
         </div>
 
         {/* Existing Card Grid */}
-        <h2 className="page-subheader">Areas of specialization</h2>
+        <h2 className="page-subheader pt-[64px]">Areas of specialization</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column */}
           <div className="flex flex-col gap-6">
             <div className="bg-white shadow-md rounded-xl p-6">
-              <h3 className="page-secondary-header pb-[8px]">Data</h3>
+              <h3 className="page-secondary-header pb-[8px] !text-[24px]">Data</h3>
               <p className="text-gray-600 page-paragraph">
                 Turn Insight into Impact. Harness the power of modern data platforms to drive confident decisions.
               </p>
             </div>
 
             <div className="bg-white shadow-md rounded-xl p-6">
-              <h3 className="page-secondary-header pb-[8px]">
+              <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Custom Solutions
               </h3>
               <p className="text-gray-600 page-paragraph">
@@ -81,7 +81,7 @@ const WhatWeDo = () => {
 
           {/* Center Column */}
           <div className="bg-red-600 text-white shadow-md rounded-xl p-6 flex flex-col justify-center">
-            <h3 className="text-lg page-secondary-header font-semibold mb-3">
+            <h3 className="text-lg page-secondary-header font-semibold mb-3 !text-[24px]">
               Enterprise Platform <span className="font-light">at the Core.</span>
             </h3>
             <p className="page-paragraph">
@@ -94,14 +94,14 @@ const WhatWeDo = () => {
           {/* Right Column */}
           <div className="flex flex-col gap-6">
             <div className="bg-white shadow-md rounded-xl p-6">
-              <h3 className="page-secondary-header pb-[8px]">Integration</h3>
+              <h3 className="page-secondary-header pb-[8px] !text-[24px]">Integration</h3>
               <p className="text-gray-600 page-paragraph">
                 Connected by design. Seamless, secure connections across platforms, partners, and devices.
               </p>
             </div>
 
             <div className="bg-white shadow-md rounded-xl p-6">
-              <h3 className="page-secondary-header pb-[8px]">
+              <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Artificial Intelligence
               </h3>
               <p className="text-gray-600 page-paragraph">

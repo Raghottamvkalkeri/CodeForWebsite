@@ -104,7 +104,7 @@ const PartnerDetails = () => {
           </div>
 
           <div>
-            <h3 className="h3 mb-3 invisible">About AVETO</h3>
+            <h3 className="page-secondary-header mb-3">About AVETO</h3>
             <div
               className="page-paragraph"
               dangerouslySetInnerHTML={{ __html: details?.extra_info }}

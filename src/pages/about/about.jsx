@@ -37,6 +37,16 @@ const AboutUs = () => {
       title: "Associate Vice President - Sales",
       img: "https://avetoconsulting.com/assets/images/sudeesh-3-585x738.png",
     },
+    {
+      name: "Sreenivas Gadhar",
+      title: "Advisor - Data and Digital",
+      img: "https://avetoconsulting.com/assets/images/whatsapp-image-2024-12-31-at-12.53.40-596x808.jpg",
+    },
+    {
+      name: "Praveen Kumar Kalasa",
+      title: "Senior Consulting Partner - Oracle",
+      img: "https://avetoconsulting.com/assets/images/praveen-596x728.png",
+    },
   ];
 
   return (
@@ -81,6 +91,24 @@ const AboutUs = () => {
             </div>
           </div>
 
+          <div className="relative bg-[#edefeb] !mt-[64px] !mb-[64px] pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
+            {/* Overlay */}
+            {/* <div className="absolute inset-0 bg-gray-800/50"></div> */}
+
+            {/* Content */}
+            <div className="relative z-10 flex items-center justify-center flex-col h-full text-black">
+              <h5 className="page-subheader text-center !m-0 !text-[32px]">
+                Join team aveto
+              </h5>
+              <span className="text-center block text-[24px]">
+                Please send resume to{" "}
+                <a className="font-bold text-black underline" href="mailto:work@avetoconsulting.com">
+                  work@avetoconsulting.com
+                </a>
+              </span>
+            </div>
+          </div>
+
           {/* Leadership Title */}
           <div className="mt-16">
             {/* <h2 className="h1">Our</h2> */}
@@ -90,7 +118,7 @@ const AboutUs = () => {
           </div>
 
           {/* Leadership Grid */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-8 text-center mb-10">
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center mb-10">
             {leaders.map((leader, index) => (
               <div key={index} className="flex flex-col items-center">
                 <img
@@ -106,7 +134,7 @@ const AboutUs = () => {
             ))}
           </div>
 
-          
+
 
 
 
@@ -114,7 +142,7 @@ const AboutUs = () => {
         </div>
 
 
-            
+
 
 
 

@@ -2,11 +2,11 @@ import React from 'react'
 
 const whatwestandfor = [{
   title: (
-    <span>Impact is in the basics. </span>
+    <span className="text-[24px]">Impact is in the basics. </span>
   ),
   header: (
     <>
-      <p>Speed. Quality. Cost. Flexibility. Transparency.</p>  <p>These aren't promises, they're the way we work.</p>    <p className="font-semibold">Our differentiation is consistency. Every interaction. Every project. Every outcome.</p>
+      <p>Speed. Quality. Cost. Flexibility. Transparency.</p>  <p>These aren't promises, they're the way we work.Our differentiation is consistency. Every interaction. Every project. Every outcome.</p>    <p className="font-semibold hidden"></p>
       {/* <p>we design technology that adapts, scales, and creates lasting impact.</p> */}
     </>
   )

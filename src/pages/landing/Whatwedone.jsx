@@ -19,23 +19,41 @@ const impacts = [
   {
     main: (
       <>
-        Deliver <span className="font-semibold">SAP Solutions</span> for a{" "}
+        {/* Deliver <span className="font-semibold">SAP Solutions</span> for a{" "}
         <span className="font-bold">global logistics leader</span> to enhance
-        supply chain and operations.
+        supply chain and operations. */}
+        We are enabling the global data warehouse initiative of a Middle Eastern conglomerate, supporting Oracle EBS, Fusion, OTM, WMS, and Oracle Finance by identifying critical data sources and acting as subject matter experts for extraction and integration into their data lake
       </>
     ),
-    sub: "Optimizing transport, warehouse, and distribution management with digital transformation.",
+    // sub: "Optimizing transport, warehouse, and distribution management with digital transformation.",
   },
   {
     main: (
+      // <>
+      //   Implement <span className="font-semibold">AI-driven analytics</span> for
+      //   a <span className="font-bold">top healthcare provider</span> to improve
+      //   patient care and decision-making.
+      // </>
       <>
-        Implement <span className="font-semibold">AI-driven analytics</span> for
-        a <span className="font-bold">top healthcare provider</span> to improve
-        patient care and decision-making.
+      We supported a specialty chemical company in addressing a large backlog of issues arising from merger activities and SAP consolidation. We formed a task force of 8 consultants to resolve over 200 outstanding process-related issues across O2C and P2P, restoring operational efficiency and process stability.</>
+    ),
+    // sub: "Enabling predictive insights and automation in healthcare systems worldwide.",
+  },
+  {
+    main : (
+      <>
+      We integrated SAP Material and BOM modules with Enovia 3DX PLM for a valve manufacturer, creating a centralized hub for efficient data management. We standardized workflows for Material and BOM processes and implemented Class 200 and 300 Configurable Materials to enhance system flexibility
       </>
     ),
-    sub: "Enabling predictive insights and automation in healthcare systems worldwide.",
+    sub: "",
   },
+  {
+    main : (
+      <>
+      We created and fully managed a custom video interview platform for an Indian startup, delivering the complete technology stack and integrations. By owning the solution end-to-end, we ensured scalability, reliability, and seamless operation for a business-critical application, showcasing our ability to deliver tailored, high-impact technology solutions
+      </>
+    )
+  }
 ];
 
 export default function ProofOfImpact() {
@@ -93,7 +111,7 @@ export default function ProofOfImpact() {
             <SwiperSlide key={index}>
               <div className="text-left">
                 <h3 className="  font-light leading-relaxed text-white p-text  md:!text-[24px] lg:!text-[30px]">
-                  {item.main} , { item.sub}
+                  {item.main} {item.sub ? `, ${item.sub}` : ''}
                 </h3>
                 {/* <p className="page-paragraph text-white">{item.sub}</p> */}
               </div>

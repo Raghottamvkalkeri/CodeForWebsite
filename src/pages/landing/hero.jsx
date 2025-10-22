@@ -56,7 +56,7 @@ const Hero = () => {
     <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         {/* Left Text */}
        <div>
-       <h1 className="ft-header">
+       <h1 className="ft-header !text-blacks">
             Driving Excellence, Delivering Value,
             One solution at a time
        </h1>
