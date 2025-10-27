@@ -74,7 +74,7 @@ const Hero = () => {
     // </section>
 
     <section className="bg-gray-50 py-16 px-6 md:px-80 mt-10">
-  <div className="max-w-7xl w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 items-center">
+  <div className="max-w-7xl w-full mx-auto grid md:grid-cols-[60%_40%]  items-center">
     <div>
       <h1 className="ft-header !text-blacks">
         Driving Excellence, Delivering Value, <br />
