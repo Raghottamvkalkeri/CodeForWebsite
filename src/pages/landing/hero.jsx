@@ -42,7 +42,7 @@ const Hero = () => {
     //         Driving Excellence, Delivering Value,<br />
     //         One solution at a time
     //       </h1>
-  
+
     //       {/* <div className=" md:text-3xl font-bold text-white h-10">
     //         <span className='text-4xl inter-text'>{currentText}</span>
     //         <span className="blinking-cursor">_</span>
@@ -52,28 +52,47 @@ const Hero = () => {
     // </section>
 
 
-    <section className="bg-gray-50 py-16 px-6 md:px-80 mt-10">
-    <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        {/* Left Text */}
-       <div>
-       <h1 className="ft-header !text-blacks">
-            Driving Excellence, Delivering Value,
-            One solution at a time
-       </h1>
-       </div>
+    // <section className="bg-gray-50 py-16 px-6 md:px-80 mt-10">
+    //   <div className="max-w-7xls mx-auto grid md:grid-cols-[60%_40%] gap-12 items-center">
+    //     {/* Left Text */}
+    //     <div>
+    //       <h1 className="ft-header !text-blacks">
+    //         Driving Excellence, Delivering Value, <br />
+    //         One solution at a time
+    //       </h1>
+    //     </div>
 
-        {/* Right Image */}
-        <div className="flex justify-center lg:justify-end">
-            <img
-                src={dots}
-                alt="Aveto Dots"
-                className="rounded-2xls shadow-lgs w-fulls max-w-md object-covers w-60"
-            />
-        </div>
+    //     {/* Right Image */}
+    //     <div className="flex justify-center lg:justify-end">
+    //       <img
+    //         src={dots}
+    //         alt="Aveto Dots"
+    //         className="rounded-2xls shadow-lgs w-fulls max-w-md object-covers w-60"
+    //       />
+    //     </div>
+    //   </div>
+    // </section>
+
+    <section className="bg-gray-50 py-16 px-6 md:px-80 mt-10">
+  <div className="max-w-7xl w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 items-center">
+    <div>
+      <h1 className="ft-header !text-blacks">
+        Driving Excellence, Delivering Value, <br />
+        One solution at a time
+      </h1>
     </div>
+
+    <div className="flex justify-center lg:justify-end">
+      <img
+        src={dots}
+        alt="Aveto Dots"
+        className="rounded-2xl shadow-lgs max-w-[240px] md:max-w-[280px] object-contain"
+      />
+    </div>
+  </div>
 </section>
-  
-)
+
+  )
 }
 
 export default Hero

@@ -43,11 +43,10 @@ const PartnerDetails = () => {
 
   // 🔹 Map Partner API fields to BannerSection props
   const bannerData = {
-    subtitle: `Our Partner`,                             // small blue label on top
-    title: name || "Partner",                             // main big heading
-    description:
-      short_description ||
-      "Discover how we've empowered global organizations through transformative digital initiatives.",
+    subtitle: ``,                             // small blue label on top
+    title: short_description || "Partner",                             // main big heading
+    description: 
+      "",
     image: logo_url || "https://avetoconsulting.com/assets/images/mbr-1256x792.jpg",
   };
 
@@ -58,60 +57,65 @@ const PartnerDetails = () => {
 
       {/* 🔹 Partner Story Section */}
       <section className="bg-white px-6 md:px-20 lg:px-80 py-16">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <div className="max-w-6xls mx-auto grid md:grid-cols-2 gap-12 items-start">
           <div
             className="page-paragraph"
             dangerouslySetInnerHTML={{ __html: details?.long_description_1 }}
           />
 
           <div className="text-right">
-            <div className="text-red-600 page-paragraph italic font-medium text-right p-text md:!text-[24px] lg:!text-[24px]">
+            {/* <div className="text-red-600 page-paragraph italic font-medium text-right p-text md:!text-[24px] lg:!text-[24px]">
               Precision meets purpose.<br />
               Expertise meets scale.<br />
               <span className="font-semibold">Together, we deliver<br />what's next in SAP ILM.</span>
-            </div>
+            </div> */}
+            <img
+          src={details.banner_url}
+          alt="Data servers"
+          className="w-full h-50 rounded-xl object-contain object-bottom shadow-lgs"
+        />
           </div>
         </div>
       </section>
 
       {/* 🔹 Blue Image Banner */}
-      <section className="px-6 md:px-80 lg:px-80 pb-16">
+      {/* <section className="px-6 md:px-80 lg:px-80 pb-16">
         <img
           src={details.banner_url}
           alt="Data servers"
           className="w-full h-50 rounded-xl object-contain object-bottom shadow-lgs"
         />
-      </section>
+      </section> */}
 
       {/* 🔹 Our Story Section */}
       <section className="bg-white px-6 md:px-80 lg:px-80 pb-16">
-        <h2 className="page-subheader mb-10">Our Story</h2>
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div>
-            <h3 className="page-secondary-header mb-3">About {name}</h3>
-            <div
-              className="page-paragraph"
-              dangerouslySetInnerHTML={{ __html: details?.additional_info_1 }}
-            />
-            <div
-              className="page-paragraph"
-              dangerouslySetInnerHTML={{ __html: details?.additional_info_2 }}
-            />
-            <div
-              className="page-paragraph"
-              dangerouslySetInnerHTML={{ __html: details?.additional_info_3 }}
-            />
-          </div>
+  <h2 className="page-subheader mb-10">Our Story</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start w-full">
+    <div className="min-w-0">
+      <h3 className="page-secondary-header mb-3">About {name}</h3>
+      <div
+        className="page-paragraph"
+        dangerouslySetInnerHTML={{ __html: details?.additional_info_1 }}
+      />
+      <div
+        className="page-paragraph"
+        dangerouslySetInnerHTML={{ __html: details?.additional_info_2 }}
+      />
+      <div
+        className="page-paragraph"
+        dangerouslySetInnerHTML={{ __html: details?.additional_info_3 }}
+      />
+    </div>
 
-          <div>
-            <h3 className="page-secondary-header mb-3">About AVETO</h3>
-            <div
-              className="page-paragraph"
-              dangerouslySetInnerHTML={{ __html: details?.extra_info }}
-            />
-          </div>
-        </div>
-      </section>
+    <div className="min-w-0">
+      <h3 className="page-secondary-header mb-3">About AVETO</h3>
+      <div
+        className="page-paragraph"
+        dangerouslySetInnerHTML={{ __html: details?.extra_info }}
+      />
+    </div>
+  </div>
+</section>
     </div>
   );
 };

@@ -12,7 +12,7 @@ const ChooseUs = () => {
       
       </div>
         {/* Row 2: 2 Cards spanning 1.5 columns each (2 cards = 3 columns) */}
-        {/* <div className="max-w-7xl mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {/* <div className="max-w-7xls mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <Card3d imgSrc="https://cdn.prod.website-files.com/680ee0879bf5c75689c201ff/680ee0889bf5c75689c202b6_5f6509a0242b30f88806aa1eabfed0c2_Asset%2039-p-800.png" title="Real-Time Analytics" subtitle="Monitor your finances live with clear, intuitive dashboards." />
           <Card3d imgSrc="https://cdn.prod.website-files.com/680ee0879bf5c75689c201ff/680ee0889bf5c75689c202b6_5f6509a0242b30f88806aa1eabfed0c2_Asset%2039-p-800.png" title="Real-Time Analytics" subtitle="Monitor your finances live with clear, intuitive dashboards." />
         </div> */}

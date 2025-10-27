@@ -1,6 +1,6 @@
+import { useInView } from 'framer-motion';
 import React, { useRef } from 'react';
 import CountUp from 'react-countup';
-import { useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const stats = [
@@ -36,7 +36,7 @@ const WhoWeAre = () => {
 
     return (
         <section className="w-full bg-white py-20 lg:px-80 xl:px-80 2xl:px-80 px-6">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
+            <div className="max-w-7xls mx-auto flex flex-col md:flex-row items-center justify-between gap-16">
                 {/* Left Section */}
                 <div className="w-full md:w-1/2 space-y-6">
                     <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 leading-snug">

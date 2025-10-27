@@ -34,20 +34,45 @@ const ServicesPage = () => {
     );
   }
 
+  
+
   return (
+    
     <div className="w-full">
       {/* Banner */}
       <BannerSection
         subtitle={data.banner?.subtitle}
         title={data.banner?.title}
-        description={data.banner?.description}
+        description={
+          service?.toLowerCase() === "custom-solution"
+            ? ''
+            : data.banner?.description
+        }
         image={data.banner?.image}
       />
 
+    
 
       {/* Service Cards */}
       <section className="bg-white py-16 px-6 md:px-80">
-        <div className="max-w-7xl mx-auto grid gap-8 md:grid-cols-3">
+      {service?.toLowerCase() === "custom-solution" && (
+
+          <div>
+            <p className=" text-left page-paragraph mt-4s mb-4" dangerouslySetInnerHTML={{__html : data.banner?.description }} />
+             
+            
+          </div>
+        
+        )
+            
+            
+            
+            }
+        <div className="max-w-7xls mx-auto grid gap-8 md:grid-cols-3">
+
+       
+
+
           {data.cards?.map((card, i) => {
             const renderContent = (content, fallback = "No description available") => {
               if (!content) return `<p>${fallback}</p>`;
@@ -92,7 +117,7 @@ const ServicesPage = () => {
       {/* Highlights Section */}
       {data.highlights_heading !== '' && (
         <section className="bg-gray-50 py-16 px-6 md:px-80">
-          <div className="max-w-7xl mx-auto text-center mb-12">
+          <div className="max-w-7xls mx-auto text-center mb-12">
             <h2 className="text-left page-subheader">
               {data.highlights_heading && data.highlights_heading.trim() !== ""
                 ? data.highlights_heading

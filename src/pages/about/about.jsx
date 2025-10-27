@@ -64,7 +64,7 @@ const AboutUs = () => {
             Team aveto
           </h3>
         </div>
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xls mx-auto ">
           {/* Image Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Large Left Image */}
@@ -100,7 +100,7 @@ const AboutUs = () => {
               <h5 className="page-subheader text-center !m-0 !text-[32px]">
                 Join team aveto
               </h5>
-              <span className="text-center block text-[24px]">
+              <span className="page-paragraph text-center block !text-[24px]">
                 Please send resume to{" "}
                 <a className="font-bold text-black underline" href="mailto:work@avetoconsulting.com">
                   work@avetoconsulting.com

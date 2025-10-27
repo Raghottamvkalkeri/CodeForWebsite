@@ -10,7 +10,7 @@ const services = [
   { name: 'Data', path: '/services/Data' },
   { name: 'Integration', path: '/services/Integration' },
   { name: 'AI Enablement', path: '/services/AI-Enablement' },
-  // { name: 'Custom Solutions', path: '/services/Custom-Solutions' },
+  { name: 'Custom Solutions', path: '/services/Custom-Solution' },
 ];
 
 const partners = [
@@ -37,6 +37,12 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', updateScrollDir);
   }, []);
 
+  useEffect(() => {
+    setShowMobileMenu(false);
+    setShowServicesDropdown(false);
+    setShowPartnersDropdown(false);
+  }, [location.pathname]);
+
   const isActive = (path) => location.pathname === path;
   const navLinkClass = (path) =>
     `${isActive(path) ? 'text-orange-800 underline underline-offset-4' : 'text-gray-700'} 
@@ -47,7 +53,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300 ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="w-32">
@@ -208,12 +214,12 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link
+            {/* <Link
               to="/contact"
               className="bg-orange-800 text-white text-center px-4 py-2 rounded-lg mt-2 hover:bg-orange-900"
             >
               Get Started
-            </Link>
+            </Link> */}
           </nav>
         </div>
       )}

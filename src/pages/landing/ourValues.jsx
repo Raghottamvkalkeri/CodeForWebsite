@@ -1,6 +1,6 @@
 import React from 'react';
+import { FaHandshake, FaLightbulb, FaRocket, FaShieldAlt } from 'react-icons/fa';
 import Card3d from '../../components/card3d';
-import { FaLightbulb, FaHandshake, FaRocket, FaShieldAlt } from 'react-icons/fa';
 
 const OurValues = () => {
     const values = [
@@ -28,7 +28,7 @@ const OurValues = () => {
 
     return (
         <section className="w-full px-20 lg:px-80 xl:px-80 2xl:px-80 md:px-80 py-16 bg-gray-100">
-            <div className="max-w-7xl mx-auto text-center mb-16">
+            <div className="max-w-7xls mx-auto text-center mb-16">
                 <h2 className="text-4xl font-heading font-bold text-slate-900 mb-4">Our Values</h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     At Aveto, our values shape every solution we craft, every decision we make, and every partnership we build.
@@ -36,7 +36,7 @@ const OurValues = () => {
             </div>
 
             {/* 3-column layout */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-7xls mx-auto">
                 {/* Left Column (2 Cards) */}
                 <div className="space-y-8">
                     <Card3d>

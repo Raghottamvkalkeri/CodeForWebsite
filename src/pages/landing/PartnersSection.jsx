@@ -56,7 +56,7 @@ const PartnersSection = () => {
                 {/* Description */}
                 <p className="page-paragraph text-gray-600 mt-2 lg:!text-[16px] flex-grow">
                 {partner.short_title} &nbsp;
-                  {partner.short_description}
+                  {/* {partner.short_description} */}
                 </p>
 
                 {/* Button */}
