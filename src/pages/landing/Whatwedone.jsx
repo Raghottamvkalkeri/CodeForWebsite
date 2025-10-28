@@ -1,10 +1,11 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { scrollToTop } from "../../components/BackToTop";
 const impacts = [
   {
     main: (
@@ -58,6 +59,7 @@ const impacts = [
 
 export default function ProofOfImpact() {
   const swiperRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!swiperRef.current) return;
@@ -129,6 +131,18 @@ export default function ProofOfImpact() {
           </button>
         </div>
       </div>
+        <div className="flex justify-end gap-4">
+            <button
+                onClick={() => {
+                    navigate("/case-studies");
+                    scrollToTop(false);
+                }}
+                className="flex justify-end gap-4 mt-2 px-1 py-2 text-2xl text-[#4B4262] hover:text-[#6B5B95] hover:underline hover:decoration-[#6B5B95] transition duration-300">
+                view all
+            </button>
+        </div>
+
+
     </section>
   );
 }

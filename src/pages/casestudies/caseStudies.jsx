@@ -273,10 +273,12 @@ const CaseStudyPage2 = () => {
   return (
     <div className="w-full">
       {/* 🔹 Banner Section */}
-      <BannerSection {...data} />
+      <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
 
       {/* 🔹 Intro Content */}
       <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
+      <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
+      <span class="font-bolds">{ data.description }</span></p>
         <div className="mt-14 mb-14">
           <Swiper
             modules={[Navigation, Grid]}
