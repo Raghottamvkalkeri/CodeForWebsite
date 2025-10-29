@@ -73,7 +73,7 @@ const Hero = () => {
     //   </div>
     // </section>
 
-    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-80 mt-10">
+    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80 mt-10">
   <div className="max-w-7xl w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 sm:gap-0 items-center">
     <div>
       <h1 className="ft-header !text-blacks">

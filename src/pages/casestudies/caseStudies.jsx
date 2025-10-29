@@ -230,6 +230,7 @@
 // export default CaseStudyPage2;
 
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
@@ -245,6 +246,7 @@ const CaseStudyPage2 = () => {
   const [selectedStudy, setSelectedStudy] = useState(null);
   const [maxHeight, setMaxHeight] = useState(0);
   const detailsRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch('https://avetoconsulting.com/apis/casestudies.php')
@@ -258,12 +260,17 @@ const CaseStudyPage2 = () => {
   if (loading) return <p>Loading banner...</p>;
   if (error) return <p>Error loading banner</p>;
 
+  // const handleCardClick = (study) => {
+  //   setSelectedStudy(study);
+  //   setTimeout(() => {
+  //     detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  //   }, 100);
+  // };
+  
   const handleCardClick = (study) => {
-    setSelectedStudy(study);
-    setTimeout(() => {
-      detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  };
+    const encodedTitle = encodeURIComponent(study.slug);
+    navigate(`/case-studies/${encodedTitle}`);
+};
 
   // 🔹 Track tallest card height dynamically
   const updateHeight = (h) => {
