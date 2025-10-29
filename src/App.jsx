@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 
 import BackToTop from './components/BacktoTop';
+import ExploreMoreServices from './components/ExploreMoreServices';
 import AboutUs from './pages/about/about';
 import CaseStudyPage2 from './pages/casestudies/caseStudies';
 import CaseStudyDetail from './pages/casestudies/CaseStudyDetail';
@@ -28,6 +29,7 @@ function App() {
         <Route path="/case-studies/:title" element={<CaseStudyDetail />} />
       </Routes>
       <BackToTop />
+      <ExploreMoreServices />
       <Footer />
     </div>
   );

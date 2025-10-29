@@ -1,17 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Logo from '../../assets/avetologo.png';
+import { useServices } from '../../context/ServiceContext';
 
-const services = [
-  { name: 'SAP', path: '/services/SAP' },
-  { name: 'Oracle', path: '/services/Oracle' },
-  { name: 'Oracle Netsuite', path: '/services/Oracle-Netsuite' },
-  { name: 'Infor Services', path: '/services/Infor' },
-  { name: 'Data', path: '/services/Data' },
-  { name: 'Integration', path: '/services/Integration' },
-  { name: 'AI Enablement', path: '/services/AI-Enablement' },
-  { name: 'Custom Solutions', path: '/services/Custom-Solution' },
-];
+// const services = [
+//   { name: 'SAP', path: '/services/SAP' },
+//   { name: 'Oracle', path: '/services/Oracle' },
+//   { name: 'Oracle Netsuite', path: '/services/Oracle-Netsuite' },
+//   { name: 'Infor Services', path: '/services/Infor' },
+//   { name: 'Data', path: '/services/Data' },
+//   { name: 'Integration', path: '/services/Integration' },
+//   { name: 'AI Enablement', path: '/services/AI-Enablement' },
+//   { name: 'Custom Solutions', path: '/services/Custom-Solution' },
+// ];
+
+
 
 const partners = [
   // { name: 'Ahmettuerk', path: '/partners/Ahmettuerk' },
@@ -25,6 +28,9 @@ const Navbar = () => {
   const [scrollDir, setScrollDir] = useState('up');
   const location = useLocation();
   const hoverTimer = useRef(null);
+  const { services, loading, error } = useServices();
+
+
 
   useEffect(() => {
     let lastScrollY = window.scrollY;

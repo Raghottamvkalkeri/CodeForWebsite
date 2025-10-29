@@ -34,10 +34,10 @@ const ServicesPage = () => {
     );
   }
 
-  
+
 
   return (
-    
+
     <div className="w-full">
       {/* Banner */}
       <BannerSection
@@ -51,26 +51,31 @@ const ServicesPage = () => {
         image={data.banner?.image}
       />
 
-    
+
 
       {/* Service Cards */}
-      <section className="bg-white py-16 px-6 md:px-80">
-      {service?.toLowerCase() === "custom-solution" && (
+      <section className="bg-white py-16 px-6 md:px-80 relative">
+        <div className="fixed top-0 left-0 w-full bg-white border-t border-gray-200 shadow-lg flex justify-center gap-4 py-2">
+          <button className="text-sm text-blue-600 font-semibold hover:underline">SAP Consulting</button>
+          <button className="text-sm text-blue-600 font-semibold hover:underline">Migration</button>
+          <button className="text-sm text-blue-600 font-semibold hover:underline">Integration</button>
+        </div>
+        {service?.toLowerCase() === "custom-solution" && (
 
           <div>
-            <p className=" text-left page-paragraph mt-4s mb-4" dangerouslySetInnerHTML={{__html : data.banner?.description }} />
-             
-            
+            <p className=" text-left page-paragraph mt-4s mb-4" dangerouslySetInnerHTML={{ __html: data.banner?.description }} />
+
+
           </div>
-        
+
         )
-            
-            
-            
-            }
+
+
+
+        }
         <div className="max-w-7xls mx-auto grid gap-8 md:grid-cols-3">
 
-       
+
 
 
           {data.cards?.map((card, i) => {
@@ -136,6 +141,7 @@ const ServicesPage = () => {
             ))}
           </div>
         </section>
+
       )}
     </div>
   );
