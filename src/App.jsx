@@ -12,6 +12,7 @@ import Landing from './pages/landing/index';
 import BackToTop from './components/BacktoTop';
 import CaseStudyPage from './pages/casestudies/index';
 import CaseStudyPage2 from './pages/casestudies/caseStudies';
+import CaseStudyDetail from "./pages/casestudies/CaseStudyDetail";
 import Partners from './pages/partners/partners';
 import AboutUs from './pages/about/about';
 import ServicePage from './pages/servicespage/servicePage';
@@ -30,6 +31,7 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/partners/:slug" element={<PartnerDetail />} />
+        <Route path="/case-studies/:title" element={<CaseStudyDetail />} />
       </Routes>
       <BackToTop />
       <Footer />
