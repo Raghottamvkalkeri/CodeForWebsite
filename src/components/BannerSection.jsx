@@ -21,7 +21,7 @@ export default function BannerSection({ subtitle, title, description, image }) {
 
         {/* Right (Image) */}
         {image && (
-          <div className="flex justify-center items-center">
+          <div className="flex justify-end items-center">
             <img
               src={image}
               alt="Services"
