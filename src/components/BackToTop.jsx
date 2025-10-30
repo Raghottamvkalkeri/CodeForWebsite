@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Reusable scroll function
 export const scrollToTop = (isSmooth = true) => {

@@ -1,22 +1,17 @@
-import { useState, useRef } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import ChooseUs from './pages/landing/ChooseUs'
-import Navbar from './pages/landing/navbar'
-import Hero from './pages/landing/hero'
-import Footer from './pages/landing/footer'
-import Clients from './pages/landing/clients'
-import OurVision from './pages/landing/ourVision'
-import ServicesSection from './pages/landing/services'
-import Landing from './pages/landing/index';
 import BackToTop from './components/BacktoTop';
-import CaseStudyPage from './pages/casestudies/index';
-import CaseStudyPage2 from './pages/casestudies/caseStudies';
-import CaseStudyDetail from "./pages/casestudies/CaseStudyDetail";
-import Partners from './pages/partners/partners';
+import ExploreMoreServices from './components/ExploreMoreServices';
 import AboutUs from './pages/about/about';
-import ServicePage from './pages/servicespage/servicePage';
+import CaseStudyPage2 from './pages/casestudies/caseStudies';
+import CaseStudyDetail from './pages/casestudies/CaseStudyDetail';
+import CaseStudyPage from './pages/casestudies/index';
+import Footer from './pages/landing/footer';
+import Landing from './pages/landing/index';
+import Navbar from './pages/landing/navbar';
 import PartnerDetail from "./pages/partners/partnerDetails";
+import Partners from './pages/partners/partners';
+import ServicePage from './pages/servicespage/servicePage';
 function App() {
 
   return (
@@ -34,6 +29,7 @@ function App() {
         <Route path="/case-studies/:title" element={<CaseStudyDetail />} />
       </Routes>
       <BackToTop />
+      <ExploreMoreServices />
       <Footer />
     </div>
   );

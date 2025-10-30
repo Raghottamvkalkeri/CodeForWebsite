@@ -1,11 +1,10 @@
 "use client";
 import React, { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useNavigate } from "react-router-dom";
-import { scrollToTop } from "../../components/BackToTop";
 const impacts = [
   {
     main: (
@@ -61,8 +60,7 @@ export default function ProofOfImpact() {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
 
-
-    useEffect(() => {
+  useEffect(() => {
     if (!swiperRef.current) return;
 
     const swiper = swiperRef.current.swiper;

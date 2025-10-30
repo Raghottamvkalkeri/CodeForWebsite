@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BannerSection from "../../components/BannerSection";
 import { useBanner } from "../../context/BannerContext";
+import CaseStudyCarouselPage from "./CaseStudyCarouselPage";
 
 const CaseStudyDetail = () => {
     const { title } = useParams();
@@ -10,10 +11,10 @@ const CaseStudyDetail = () => {
     const { data, loading, error } = useBanner();
 
     useEffect(() => {
-        fetch("https://avetoconsulting.com/apis/casestudies.php")
+        fetch(`https://avetoconsulting.com/apis/casestudies.php`)
             .then((res) => res.json())
             .then((data) => {
-                const found = data.find((item) => item.title === decodedTitle);
+                const found = data.find((item) => item.slug === decodedTitle);
                 setCaseStudy(found);
             })
             .catch((err) => console.error("Error fetching case study:", err));
@@ -39,7 +40,7 @@ const CaseStudyDetail = () => {
     return (
         <div className="w-full">
             {/* 🔹 Banner Section */}
-            <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
+            <BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} />
 
             <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
                 <div className="order-2 lg:order-1">
@@ -112,6 +113,12 @@ const CaseStudyDetail = () => {
                         </section>
                     </div>
                 </div>
+            </section>
+            <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
+            <h4 className="page-subheader mb-4">
+                       Read Case Study
+                    </h4>
+                <CaseStudyCarouselPage />
             </section>
         </div>
     );

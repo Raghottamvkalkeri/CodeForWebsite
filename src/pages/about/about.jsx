@@ -49,14 +49,27 @@ const AboutUs = () => {
     },
   ];
 
+  const bannerData = {
+    subtitle: data.subtitle,                             // small blue label on top
+    title: data.title || "Partner",                             // main big heading
+    description: ``,
+    image: `` ,
+  };
+
   return (
     <div className="w-full">
 
+      
 
-      <BannerSection {...data} />
+
+      <BannerSection {...bannerData} />
 
       {/* 🔹 Intro Content */}
       <section className="bg-white text-slate-800  px-6 sm:px-10 md:px-80 lg:px-80 xl:px-80 2xl:px-80">
+
+        <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
+          <span class="font-bolds">{ data.description }</span></p>
+
         {/* Team Aveto */}
         <div className="mt-16">
           {/* <h2 className="h1">Our</h2> */}
