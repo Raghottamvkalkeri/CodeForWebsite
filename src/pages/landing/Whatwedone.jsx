@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { scrollToTop } from "../../components/BackToTop";
+
 const impacts = [
   {
     main: (

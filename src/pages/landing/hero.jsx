@@ -77,7 +77,7 @@ const Hero = () => {
   <div className="max-w-7xls w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 sm:gap-0 items-center">
     <div>
       <h1 className="ft-header !text-blacks">
-        Driving Excellence, Delivering Value, <br />
+        Driving Excellence,<br/> Delivering Value, <br />
         One solution at a time
       </h1>
     </div>
