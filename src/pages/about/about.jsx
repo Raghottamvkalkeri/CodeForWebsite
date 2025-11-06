@@ -67,7 +67,8 @@ const AboutUs = () => {
       {/* 🔹 Intro Content */}
       <section className="bg-white text-slate-800  px-6 sm:px-10 md:px-80 lg:px-80 xl:px-80 2xl:px-80">
 
-        <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
+      <div className="container mx-auto px-4s">
+      <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
           <span class="font-bolds">{ data.description }</span></p>
 
         {/* Team Aveto */}
@@ -153,6 +154,7 @@ const AboutUs = () => {
 
 
         </div>
+      </div>
 
 
 

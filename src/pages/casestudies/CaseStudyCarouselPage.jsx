@@ -27,7 +27,8 @@ const CaseStudyCarouselPage = () => {
 
   const handleCardClick = (study) => {
     const encodedTitle = encodeURIComponent(study.slug);
-    navigate(`/case-studies/${encodedTitle}`);
+    // navigate(`/case-studies/${encodedTitle}`);
+    location.href = `/case-studies/${encodedTitle}`;
   };
 
   // Track tallest card height dynamically
@@ -36,48 +37,100 @@ const CaseStudyCarouselPage = () => {
   };
 
   return (
-    <div className="w-full">
-      {/* Banner Section */}
-    
+    // <div className="w-full">
+    //   {/* Banner Section */}
+    //
+    //
+    //   {/* Intro Section */}
+    //   <section className="">
+    //     <p className="text-left page-paragraph mb-6">
+    //       <span className="font-bold">{data.description}</span>
+    //     </p>
+    //
+    //     {/* 🔹 Carousel Section */}
+    //     <div className="mt-14 mb-14">
+    //       <Swiper
+    //         modules={[Navigation]}
+    //         navigation
+    //         spaceBetween={30}
+    //         slidesPerView={3}
+    //         centeredSlides={false}
+    //         loop={true}
+    //         breakpoints={{
+    //           320: { slidesPerView: 1 },
+    //           640: { slidesPerView: 2 },
+    //           1024: { slidesPerView: 2 },
+    //         }}
+    //       >
+    //         {caseStudies.map((study, index) => (
+    //           <SwiperSlide key={index}>
+    //             <div style={{ height: maxHeight || 'auto' }}>
+    //               <CaseCard
+    //                 image={study.thumbnail_image}
+    //                 title={study.title}
+    //                 subtitle={study.subtitle}
+    //                 onClick={() => handleCardClick(study)}
+    //                 setMaxHeight={updateHeight}
+    //               />
+    //             </div>
+    //           </SwiperSlide>
+    //         ))}
+    //       </Swiper>
+    //     </div>
+    //   </section>
+    // </div>
 
-      {/* Intro Section */}
-      <section className="">
-        <p className="text-left page-paragraph mb-6">
-          <span className="font-bold">{data.description}</span>
-        </p>
+      <div className="w-full">
+          {/* Banner Section */}
 
-        {/* 🔹 Carousel Section */}
-        <div className="mt-14 mb-14">
-          <Swiper
-            modules={[Navigation]}
-            navigation
-            spaceBetween={30}
-            slidesPerView={3}
-            centeredSlides={false}
-            loop={true}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 2 },
-            }}
-          >
-            {caseStudies.map((study, index) => (
-              <SwiperSlide key={index}>
-                <div style={{ height: maxHeight || 'auto' }}>
-                  <CaseCard
-                    image={study.thumbnail_image}
-                    title={study.title}
-                    subtitle={study.subtitle}
-                    onClick={() => handleCardClick(study)}
-                    setMaxHeight={updateHeight}
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </section>
-    </div>
+          {/* Intro Section */}
+          <section className="">
+              <p className="text-left page-paragraph mb-6">
+                  <span className="font-bold">{data.description}</span>
+              </p>
+
+              {/* 🔹 Carousel Section */}
+              <div className="mt-10 mb-10">
+                  <Swiper
+                      modules={[Navigation]}
+                      navigation
+                      spaceBetween={10} // reduced spacing for tighter fit
+                      slidesPerView={2.5} // now fits 2.5 boxes per view
+                      centeredSlides={false}
+                      loop={true}
+                      breakpoints={{
+                          320: { slidesPerView: 1 },
+                          640: { slidesPerView: 1.5 },
+                          1024: { slidesPerView: 2.5 },
+                      }}
+                  >
+                      {caseStudies.map((study, index) => (
+                          <SwiperSlide key={index}>
+                              <div
+                                  style={{
+                                      height: maxHeight
+                                          ? `${parseInt(maxHeight) * 0.9}px` // slightly smaller height
+                                          : 'auto',
+                                      transform: 'scale(0.95)', // subtle reduction
+                                      transformOrigin: 'top left',
+                                  }}
+                              >
+                                  <CaseCard
+                                      image={study.thumbnail_image}
+                                      index={index}
+                                      title={study.title}
+                                      subtitle={study.subtitle}
+                                      onClick={() => handleCardClick(study)}
+                                      setMaxHeight={updateHeight}
+                                  />
+                              </div>
+                          </SwiperSlide>
+                      ))}
+                  </Swiper>
+              </div>
+          </section>
+      </div>
+
   );
 };
 

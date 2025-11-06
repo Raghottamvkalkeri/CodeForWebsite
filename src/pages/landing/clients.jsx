@@ -30,6 +30,7 @@ const Clients = () => {
 
     return (
         <section className="py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+            <div className="max-w-7xls container mx-auto mb-10">
             <h2 className="page-subheader">Our Clients</h2>
 
             {/* Top Row - Left to Right */}
@@ -57,6 +58,7 @@ const Clients = () => {
                     />
                 ))}
             </Marquee>
+            </div>
         </section>
     );
 };

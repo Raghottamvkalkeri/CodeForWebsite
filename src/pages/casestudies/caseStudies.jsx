@@ -234,8 +234,6 @@ import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
-import { Grid, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import BannerSection from '../../components/BannerSection';
 import CaseCard from '../../components/caseCard';
 import { useBanner } from '../../context/BannerContext';
@@ -269,7 +267,8 @@ const CaseStudyPage2 = () => {
   
   const handleCardClick = (study) => {
     const encodedTitle = encodeURIComponent(study.slug);
-    navigate(`/case-studies/${encodedTitle}`);
+    // navigate(`/case-studies/${encodedTitle}`);
+    location.href = `/case-studies/${encodedTitle}`;
 };
 
   // 🔹 Track tallest card height dynamically
@@ -286,7 +285,7 @@ const CaseStudyPage2 = () => {
       <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
       <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
       <span class="font-bolds">{ data.description }</span></p>
-        <div className="mt-14 mb-14">
+        {/* <div className="mt-14 mb-14">
           <Swiper
             modules={[Navigation, Grid]}
             navigation
@@ -305,6 +304,7 @@ const CaseStudyPage2 = () => {
                   <CaseCard
                     image={study.thumbnail_image}
                     title={study.title}
+                    index={index}
                     subtitle={study.subtitle}
                     onClick={() => handleCardClick(study)}
                     setMaxHeight={updateHeight} // ✅ Report height to parent
@@ -313,7 +313,24 @@ const CaseStudyPage2 = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
+        </div> */}
+
+        <div className="mt-14 mb-14">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
+    {caseStudies.map((study, index) => (
+      <div key={index} style={{ height: maxHeight || 'auto' }}>
+        <CaseCard
+          image={study.thumbnail_image}
+          title={study.title}
+          index={index}
+          subtitle={study.subtitle}
+          onClick={() => handleCardClick(study)}
+          setMaxHeight={updateHeight}
+        />
+      </div>
+    ))}
+  </div>
+</div>
 
         {selectedStudy && (
           <div ref={detailsRef} className="bg-white">

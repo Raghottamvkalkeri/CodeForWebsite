@@ -73,7 +73,7 @@ const ServicesPage = () => {
 
 
         }
-        <div className="max-w-7xls mx-auto grid gap-8 md:grid-cols-3">
+        <div className="max-w-7xls container mx-auto grid gap-8 md:grid-cols-3">
 
 
 
@@ -122,7 +122,7 @@ const ServicesPage = () => {
       {/* Highlights Section */}
       {data.highlights_heading !== '' && (
         <section className="bg-gray-50 py-16 px-6 md:px-80">
-          <div className="max-w-7xls mx-auto text-center mb-12">
+          <div className="max-w-7xls container mx-auto text-center mb-12">
             <h2 className="text-left page-subheader">
               {data.highlights_heading && data.highlights_heading.trim() !== ""
                 ? data.highlights_heading
@@ -132,13 +132,14 @@ const ServicesPage = () => {
               {data.highlights_intro ||
                 ""}
             </p>
-          </div>
+          
           <div className="max-w-6xls mx-autos grid gap-8 md:grid-cols-3">
             {data.highlights?.map((point, i) => (
               <div key={i} className="p-6 bg-white rounded-xl shadow page-paragraph" dangerouslySetInnerHTML={{ __html: point }} />
               // <p className="page-paragraph">{point}</p>
 
             ))}
+          </div>
           </div>
         </section>
 

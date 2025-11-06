@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BannerSection from "../../components/BannerSection";
 import { useBanner } from "../../context/BannerContext";
 import CaseStudyCarouselPage from "./CaseStudyCarouselPage";
 
@@ -40,9 +39,9 @@ const CaseStudyDetail = () => {
     return (
         <div className="w-full">
             {/* 🔹 Banner Section */}
-            <BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} />
+            {/*<BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} />*/}
 
-            <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
+            <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80 pt-30">
                 <div className="order-2 lg:order-1">
                     <h4 className="text-sm font-semibold text-slate-600 mb-2 uppercase tracking-wide">
                         Case Study

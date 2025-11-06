@@ -83,7 +83,7 @@ export default function ProofOfImpact() {
   return (
     <section className="font-sans text-gray-800 py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
       {/* Header */}
-      <div className="max-w-5xls mx-auto">
+      <div className="max-w-5xls container mx-auto">
         <h2 className="page-subheader">
           Proof of Impact <span className="font-normal">Outcomes that speak louder than words</span>
         </h2>
@@ -94,7 +94,6 @@ export default function ProofOfImpact() {
           together—solving today’s problems while anticipating tomorrow’s. */}
           
         </p>
-      </div>
 
       {/* Swiper */}
       <div className="max-w-4xls mx-auto mt-12 bg-[#4B4262] p-10">
@@ -140,7 +139,7 @@ export default function ProofOfImpact() {
                 view all
             </button>
         </div>
-
+        </div>
 
     </section>
   );

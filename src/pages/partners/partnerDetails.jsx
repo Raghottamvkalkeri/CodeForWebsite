@@ -45,7 +45,7 @@ const PartnerDetails = () => {
   const bannerData = {
     subtitle: ``,                             // small blue label on top
     title: short_description || "Partner",                             // main big heading
-    description: 
+    description:
       "",
     image: logo_url || "https://avetoconsulting.com/assets/images/mbr-1256x792.jpg",
   };
@@ -57,7 +57,7 @@ const PartnerDetails = () => {
 
       {/* 🔹 Partner Story Section */}
       <section className="bg-white px-6 md:px-20 lg:px-80 py-16">
-        <div className="max-w-6xls mx-auto grid md:grid-cols-2 gap-12 items-start">
+        <div className="max-w-6xls container mx-auto grid md:grid-cols-2 gap-12 items-start">
           <div
             className="page-paragraph"
             dangerouslySetInnerHTML={{ __html: details?.long_description_1 }}
@@ -70,10 +70,10 @@ const PartnerDetails = () => {
               <span className="font-semibold">Together, we deliver<br />what's next in SAP ILM.</span>
             </div> */}
             <img
-          src={details.banner_url}
-          alt="Data servers"
-          className="w-full h-50 rounded-xl object-contain object-bottom shadow-lgs"
-        />
+              src={details.banner_url}
+              alt="Data servers"
+              className="w-full h-50 rounded-xl object-contain object-bottom shadow-lgs"
+            />
           </div>
         </div>
       </section>
@@ -89,33 +89,35 @@ const PartnerDetails = () => {
 
       {/* 🔹 Our Story Section */}
       <section className="bg-white px-6 md:px-80 lg:px-80 pb-16">
-  <h2 className="page-subheader mb-10">Our Story</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start w-full">
-    <div className="min-w-0">
-      <h3 className="page-secondary-header mb-3">About {name}</h3>
-      <div
-        className="page-paragraph"
-        dangerouslySetInnerHTML={{ __html: details?.additional_info_1 }}
-      />
-      <div
-        className="page-paragraph"
-        dangerouslySetInnerHTML={{ __html: details?.additional_info_2 }}
-      />
-      <div
-        className="page-paragraph"
-        dangerouslySetInnerHTML={{ __html: details?.additional_info_3 }}
-      />
-    </div>
+       <div className="max-w-6xls container mx-auto">
+       <h2 className="page-subheader mb-10">Our Story</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start w-full">
+          <div className="min-w-0">
+            <h3 className="page-secondary-header mb-3">About {name}</h3>
+            <div
+              className="page-paragraph"
+              dangerouslySetInnerHTML={{ __html: details?.additional_info_1 }}
+            />
+            <div
+              className="page-paragraph"
+              dangerouslySetInnerHTML={{ __html: details?.additional_info_2 }}
+            />
+            <div
+              className="page-paragraph"
+              dangerouslySetInnerHTML={{ __html: details?.additional_info_3 }}
+            />
+          </div>
 
-    <div className="min-w-0">
-      <h3 className="page-secondary-header mb-3">About AVETO</h3>
-      <div
-        className="page-paragraph"
-        dangerouslySetInnerHTML={{ __html: details?.extra_info }}
-      />
-    </div>
-  </div>
-</section>
+          <div className="min-w-0">
+            <h3 className="page-secondary-header mb-3">About AVETO</h3>
+            <div
+              className="page-paragraph"
+              dangerouslySetInnerHTML={{ __html: details?.extra_info }}
+            />
+          </div>
+        </div>
+        </div>
+      </section>
     </div>
   );
 };
