@@ -115,45 +115,62 @@ const ExploreMoreServices = () => {
                         className="fixed right-6 bottom-[40%] flex flex-col gap-3 z-50"
                     >
 
-                        <motion.button
-                            whileTap={{ scale: 0.9 }}
-                            onClick={handleNext}
-                            className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 border border-gray-200 text-gray-400 shadow-[inset_0_0_8px_rgba(255,255,255,0.3),0_4px_10px_rgba(0,0,0,0.2)] backdrop-blur-md hover:bg-white/40 hover:text-gray-600 hover:shadow-[inset_0_0_10px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)] transition-all duration-300"
-                            title="Next Service"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="w-6 h-6"
-                            >
-                                <path d="M9 18l6-6-6-6" />
-                            </svg>
-                        </motion.button>
+                        <div className="fixed right-6 bottom-[40%] flex flex-col gap-3 z-50">
+                            {/* Next Button */}
+                            <div className="relative group">
+                                <motion.button
+                                    whileTap={{ scale: 0.9 }}
+                                    onClick={handleNext}
+                                    className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 border border-gray-200 text-gray-400 shadow-[inset_0_0_8px_rgba(255,255,255,0.3),0_4px_10px_rgba(0,0,0,0.2)] backdrop-blur-md hover:bg-white/40 hover:text-gray-600 hover:shadow-[inset_0_0_10px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)] transition-all duration-300"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-6 h-6"
+                                    >
+                                        <path d="M9 18l6-6-6-6" />
+                                    </svg>
+                                </motion.button>
 
-                        <motion.button
-                            whileTap={{ scale: 0.9 }}
-                            onClick={handlePrev}
-                            className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 border border-gray-200 text-gray-400 shadow-[inset_0_0_8px_rgba(255,255,255,0.3),0_4px_10px_rgba(0,0,0,0.2)] backdrop-blur-md hover:bg-white/40 hover:text-gray-600 hover:shadow-[inset_0_0_10px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)] transition-all duration-300"
-                            title="Previous Service"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="3"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                className="w-6 h-6"
-                            >
-                                <path d="M15 18l-6-6 6-6" />
-                            </svg>
-                        </motion.button>
+                                {/* Tooltip for Next */}
+                                <span className="absolute right-full mr-3 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap transition">
+                                 {`${services[(currentIndex + 1) % services.length]?.name}`}
+                                </span>
+                            </div>
+
+                            {/* Previous Button */}
+                            <div className="relative group">
+                                <motion.button
+                                    whileTap={{ scale: 0.9 }}
+                                    onClick={handlePrev}
+                                    className="w-14 h-14 flex items-center justify-center rounded-full bg-white/20 border border-gray-200 text-gray-400 shadow-[inset_0_0_8px_rgba(255,255,255,0.3),0_4px_10px_rgba(0,0,0,0.2)] backdrop-blur-md hover:bg-white/40 hover:text-gray-600 hover:shadow-[inset_0_0_10px_rgba(255,255,255,0.4),0_6px_12px_rgba(0,0,0,0.3)] transition-all duration-300"
+                                >
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="3"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        className="w-6 h-6"
+                                    >
+                                        <path d="M15 18l-6-6 6-6" />
+                                    </svg>
+                                </motion.button>
+
+                                {/* Tooltip for Previous */}
+                                <span className="absolute right-full mr-3 opacity-0 group-hover:opacity-100 bg-gray-800 text-white text-xs rounded-md px-2 py-1 whitespace-nowrap transition">
+                                 {`${services[(currentIndex - 1 + services.length) % services.length]?.name}`}
+                                </span>
+                            </div>
+                        </div>
+
 
                     </motion.div>
                 )}
