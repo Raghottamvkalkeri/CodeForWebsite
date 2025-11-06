@@ -1,6 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 
 import BackToTop from './components/BacktoTop';
+import ExploreMoreServices from './components/ExploreMoreServices';
 import AboutUs from './pages/about/about';
 import CaseStudyPage2 from './pages/casestudies/caseStudies';
 import CaseStudyDetail from './pages/casestudies/CaseStudyDetail';
@@ -13,6 +14,10 @@ import Partners from './pages/partners/partners';
 import ServicePage from './pages/servicespage/servicePage';
 function App() {
 
+  const location = useLocation();
+
+  const ShowExploreSerives = location.pathname.startsWith("/services/");
+console.log("ShowExploreSerives:", ShowExploreSerives);
   return (
     <div>
       <Navbar />
@@ -28,7 +33,9 @@ function App() {
         <Route path="/case-studies/:title" element={<CaseStudyDetail />} />
       </Routes>
       <BackToTop />
-      {/* <ExploreMoreServices /> */}
+      {ShowExploreSerives &&
+        <ExploreMoreServices />
+      }
       <Footer />
     </div>
   );
