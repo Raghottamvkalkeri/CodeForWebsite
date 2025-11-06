@@ -55,14 +55,9 @@ const ServicesPage = () => {
 
       {/* Service Cards */}
       <section className="bg-white py-16 px-6 md:px-80 relative">
-        <div className="fixed top-0 left-0 w-full bg-white border-t border-gray-200 shadow-lg flex justify-center gap-4 py-2">
-          <button className="text-sm text-blue-600 font-semibold hover:underline">SAP Consulting</button>
-          <button className="text-sm text-blue-600 font-semibold hover:underline">Migration</button>
-          <button className="text-sm text-blue-600 font-semibold hover:underline">Integration</button>
-        </div>
         {service?.toLowerCase() === "custom-solution" && (
 
-          <div>
+          <div className="container mx-auto">
             <p className=" text-left page-paragraph mt-4s mb-4" dangerouslySetInnerHTML={{ __html: data.banner?.description }} />
 
 

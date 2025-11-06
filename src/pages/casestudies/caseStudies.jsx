@@ -229,7 +229,7 @@
 
 // export default CaseStudyPage2;
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/grid";
@@ -243,80 +243,103 @@ const CaseStudyPage2 = () => {
   const [caseStudies, setCaseStudies] = useState([]);
   const [selectedStudy, setSelectedStudy] = useState(null);
   const [maxHeight, setMaxHeight] = useState(0);
-  const detailsRef = useRef(null);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+
+  const observerRef = useRef(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch('https://avetoconsulting.com/apis/casestudies.php')
-      .then((res) => res.json())
-      .then((data) => {
-        setCaseStudies(data);
-      })
-      .catch((err) => console.error('Error fetching case studies:', err));
-  }, []);
-
-  if (loading) return <p>Loading banner...</p>;
-  if (error) return <p>Error loading banner</p>;
-
-  // const handleCardClick = (study) => {
-  //   setSelectedStudy(study);
-  //   setTimeout(() => {
-  //     detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  //   }, 100);
-  // };
+  // ✅ Fetch paginated case studies
+  const fetchCaseStudies = useCallback(async (pageNum) => {
+    if (loadingMore || !hasMore) return;
+    setLoadingMore(true);
   
+    try {
+      const res = await fetch(`https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=6`);
+      const data = await res.json();
+  
+      if (data.data && data.data.length > 0) {
+        setCaseStudies((prev) => {
+          const newData = data.data.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newData];
+        });
+        setHasMore(pageNum < data.total_pages);
+      } else {
+        setHasMore(false);
+      }
+    } catch (err) {
+      console.error("Error fetching case studies:", err);
+    } finally {
+      setLoadingMore(false);
+    }
+  }, [loadingMore, hasMore]);
+
+  // ✅ Initial fetch
+  useEffect(() => {
+    fetchCaseStudies(1);
+  }, [fetchCaseStudies]);
+
+  // ✅ Infinite scroll observer
+
+
+  useEffect(() => {
+    if (!hasMore || loadingMore) return;
+  
+    const scrollContainer = document.getElementById("scrollable-grid");
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !loadingMore && hasMore) {
+          setPage((prev) => prev + 1);
+        }
+      },
+      {
+        root: scrollContainer, // 👈 observe inside grid scroll
+        threshold: 0.5,
+      }
+    );
+  
+    if (observerRef.current) observer.observe(observerRef.current);
+    return () => observer.disconnect();
+  }, [hasMore, loadingMore]);
+
+  // ✅ Fetch next page when page number changes
+  useEffect(() => {
+    if (page > 1) fetchCaseStudies(page);
+  }, [page, fetchCaseStudies]);
+
   const handleCardClick = (study) => {
     const encodedTitle = encodeURIComponent(study.slug);
-    // navigate(`/case-studies/${encodedTitle}`);
     location.href = `/case-studies/${encodedTitle}`;
-};
+  };
 
-  // 🔹 Track tallest card height dynamically
   const updateHeight = (h) => {
     setMaxHeight((prev) => (h > prev ? h : prev));
   };
+
+  if (loading) return <p>Loading banner...</p>;
+  if (error) return <p>Error loading banner</p>;
 
   return (
     <div className="w-full">
       {/* 🔹 Banner Section */}
       <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
 
-      {/* 🔹 Intro Content */}
+      {/* 🔹 Content */}
       <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
-      <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
-      <span class="font-bolds">{ data.description }</span></p>
-        {/* <div className="mt-14 mb-14">
-          <Swiper
-            modules={[Navigation, Grid]}
-            navigation
-            spaceBetween={20}
-            slidesPerView={3}
-            grid={{ rows: 2, fill: "row" }}
-            breakpoints={{
-              320: { slidesPerView: 1, grid: { rows: 1 } },
-              640: { slidesPerView: 2, grid: { rows: 1 } },
-              1024: { slidesPerView: 2, grid: { rows: 3 } },
-            }}
-          >
-            {caseStudies.map((study, index) => (
-              <SwiperSlide key={index} className="mb-14s">
-                <div style={{ height: maxHeight || 'auto' }}>
-                  <CaseCard
-                    image={study.thumbnail_image}
-                    title={study.title}
-                    index={index}
-                    subtitle={study.subtitle}
-                    onClick={() => handleCardClick(study)}
-                    setMaxHeight={updateHeight} // ✅ Report height to parent
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div> */}
+        <p className="text-left page-paragraph mb-4">
+          <span className="font-bolds">{data.description}</span>
+        </p>
 
-        <div className="mt-14 mb-14">
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
+       {/* 🔹 Case Study Grid (Scroll Only This Section) */}
+<div className="mt-14 mb-14 relative">
+  <div
+    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 overflow-y-auto max-h-[80vh] px-2"
+    id="scrollable-grid"
+  >
     {caseStudies.map((study, index) => (
       <div key={index} style={{ height: maxHeight || 'auto' }}>
         <CaseCard
@@ -329,98 +352,23 @@ const CaseStudyPage2 = () => {
         />
       </div>
     ))}
+
+    {/* 🔹 Loader Trigger Element */}
+    {hasMore && (
+      <div ref={observerRef} className="flex justify-center mt-10 col-span-2">
+        <p className="text-gray-500">
+          {loadingMore ? 'Loading more...' : 'Scroll for more'}
+        </p>
+      </div>
+    )}
+
+    {!hasMore && (
+      <div className="flex justify-center mt-10 col-span-2">
+        <p className="text-gray-400">All case studies loaded</p>
+      </div>
+    )}
   </div>
 </div>
-
-        {selectedStudy && (
-          <div ref={detailsRef} className="bg-white">
-            <div className="order-2 lg:order-1">
-              <h4 className="text-sm font-semibold text-slate-600 mb-2 uppercase tracking-wide">
-                Case Study
-              </h4>
-              <h2 className="page-subheader mb-4">{selectedStudy.title}</h2>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-16">
-              <div className="order-2 lg:order-1 mt-10">
-                <p className="!text-[24px] page-paragraph text-slate-700 max-w-4xl mb-8">
-                  {selectedStudy.subtitle}
-                </p>
-              </div>
-              <div className="order-1 lg:order-2 w-full h-64 md:h-72 lg:h-full overflow-hidden rounded-xl shadow-lg self-stretch">
-                <img
-                  src={selectedStudy.image}
-                  alt={selectedStudy.title}
-                  className="w-full h-64 md:h-72 lg:h-80 overflow-hidden rounded-lg shadow-md object-cover object-center"
-                />
-              </div>
-            </div>
-
-            {/* Details Section */}
-            {(() => {
-              const renderListContent = (content, fallback = "No data available") => {
-                if (!content) return `<li>${fallback}</li>`;
-                if (Array.isArray(content)) return content.map((i) => `<li>${i}</li>`).join("");
-                if (/<li>/i.test(content)) return content;
-                const points = content
-                  .split(/\. |\n|, (?=[A-Z])/)
-                  .map((p) => p.trim())
-                  .filter(Boolean);
-                return points.length
-                  ? points.map((p) => `<li>${p}</li>`).join("")
-                  : `<li>${fallback}</li>`;
-              };
-
-              return (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 md:gap-y-12 items-start">
-                  <div className="space-y-10">
-                    <section>
-                      <h3 className="text-xl font-semibold text-slate-800 mb-4">Challenge</h3>
-                      <ul
-                        className="text-slate-600 page-paragraph leading-relaxed ml-5"
-                        dangerouslySetInnerHTML={{
-                          __html: renderListContent(selectedStudy.details?.challenge),
-                        }}
-                      />
-                    </section>
-                    <section>
-                      <h3 className="text-xl font-semibold text-slate-800 mb-4">The Solution</h3>
-                      <ul
-                        className="text-slate-600 page-paragraph leading-relaxed ml-5"
-                        dangerouslySetInnerHTML={{
-                          __html: renderListContent(selectedStudy.details?.solution),
-                        }}
-                      />
-                    </section>
-                    {selectedStudy.technologies && (
-                      <section>
-                        <h3 className="text-xl font-semibold text-slate-800 mb-4">Technologies Used</h3>
-                        <ul
-                          className="text-slate-600 page-paragraph leading-relaxed ml-5"
-                          dangerouslySetInnerHTML={{
-                            __html: renderListContent(selectedStudy.technologies),
-                          }}
-                        />
-                      </section>
-                    )}
-                  </div>
-
-                  <div className="space-y-10">
-                    <section>
-                      <h3 className="text-xl font-semibold text-slate-800 mb-4">Results</h3>
-                      <ul
-                        className="text-slate-600 page-paragraph leading-relaxed ml-5"
-                        dangerouslySetInnerHTML={{
-                          __html: renderListContent(selectedStudy.details?.results),
-                        }}
-                      />
-                    </section>
-                  </div>
-                </div>
-              );
-            })()}
-          </div>
-        )}
       </section>
     </div>
   );

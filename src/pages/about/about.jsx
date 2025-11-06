@@ -105,23 +105,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="relative bg-[#edefeb] !mt-[64px] !mb-[64px] pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
-            {/* Overlay */}
-            {/* <div className="absolute inset-0 bg-gray-800/50"></div> */}
-
-            {/* Content */}
-            <div className="relative z-10 flex items-center justify-center flex-col h-full text-black">
-              <h5 className="page-subheader text-center !m-0 !text-[32px]">
-                Join team aveto
-              </h5>
-              <span className="page-paragraph text-center block !text-[24px]">
-                Please send resume to{" "}
-                <a className="font-bold text-black underline" href="mailto:work@avetoconsulting.com">
-                  work@avetoconsulting.com
-                </a>
-              </span>
-            </div>
-          </div>
+            
 
           {/* Leadership Title */}
           <div className="mt-16">
@@ -166,6 +150,29 @@ const AboutUs = () => {
       </section>
 
       <Whatwestandfor />
+
+      <section className="bg-white text-slate-800  px-6 sm:px-10 md:px-80 lg:px-80 xl:px-80 2xl:px-80">
+      <div className="container mx-auto">
+      <div className="relative bg-[#edefeb] !mt-[64px]s !mb-[64px] pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
+            {/* Overlay */}
+            {/* <div className="absolute inset-0 bg-gray-800/50"></div> */}
+
+            {/* Content */}
+            <div className="relative z-10 flex items-center justify-center flex-col h-full text-black">
+              <h5 className="page-subheader text-center !m-0 !text-[32px]">
+                Join team aveto
+              </h5>
+              <span className="page-paragraph text-center block !text-[24px]">
+                Please send resume to{" "}
+                <a className="font-bold text-black underline" href="mailto:work@avetoconsulting.com">
+                  work@avetoconsulting.com
+                </a>
+              </span>
+            </div>
+          </div>
+      </div>
+      </section>
+
     </div>
   );
 };

@@ -9,7 +9,7 @@ import './index.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* add /website in local  */}
-    <BrowserRouter basename='/'>
+    <BrowserRouter basename='/website'>
     <BannerProvider>
       <ServicesProvider>
         <App />
