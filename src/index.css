@@ -20,10 +20,18 @@
 .ft-header {
   /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
   @apply lg:text-[54px] md:text-[48px] sm:text-[32px] font-bold;
-  font-family: "Merriweather", serif !important;
+  /* font-family: "Merriweather", serif !important; */
+  font-family: "Inter Tight", serif !important;
   font-optical-sizing: auto;
 }
 /* Applid for header and hero banners for all pages */
+
+.ft-header-inter {
+  /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
+  @apply lg:text-[54px] md:text-[48px] sm:text-[32px] font-bold;
+  font-family: "Inter Tight", serif !important;
+  font-optical-sizing: auto;
+}
 
 
 /* Applied for all title */
@@ -322,3 +330,5 @@ p {
 .hero-bg {
   background-color : #f8f8f8;
 }
+
+

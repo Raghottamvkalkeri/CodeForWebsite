@@ -63,7 +63,7 @@ const OurValues = () => {
                 {/* Middle Image */}
                 <div className="flex justify-center h-full w-full">
                     <img
-                        src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg"
+                        src="https://avetoconsulting.com/assets/images/img_690daf73ecbbd.webp"
                         alt="Our Values"
                         className="rounded-xl shadow-xl w-full max-w-sm h-auto object-cover"
                     />

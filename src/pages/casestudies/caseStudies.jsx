@@ -254,11 +254,11 @@ const CaseStudyPage2 = () => {
   const fetchCaseStudies = useCallback(async (pageNum) => {
     if (loadingMore || !hasMore) return;
     setLoadingMore(true);
-  
+
     try {
       const res = await fetch(`https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=6`);
       const data = await res.json();
-  
+
       if (data.data && data.data.length > 0) {
         setCaseStudies((prev) => {
           const newData = data.data.filter(
@@ -287,9 +287,9 @@ const CaseStudyPage2 = () => {
 
   useEffect(() => {
     if (!hasMore || loadingMore) return;
-  
+
     const scrollContainer = document.getElementById("scrollable-grid");
-  
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !loadingMore && hasMore) {
@@ -301,7 +301,7 @@ const CaseStudyPage2 = () => {
         threshold: 0.5,
       }
     );
-  
+
     if (observerRef.current) observer.observe(observerRef.current);
     return () => observer.disconnect();
   }, [hasMore, loadingMore]);
@@ -334,41 +334,41 @@ const CaseStudyPage2 = () => {
           <span className="font-bolds">{data.description}</span>
         </p>
 
-       {/* 🔹 Case Study Grid (Scroll Only This Section) */}
-<div className="mt-14 mb-14 relative">
-  <div
-    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5 overflow-y-auto max-h-[80vh] px-2"
-    id="scrollable-grid"
-  >
-    {caseStudies.map((study, index) => (
-      <div key={index} style={{ height: maxHeight || 'auto' }}>
-        <CaseCard
-          image={study.thumbnail_image}
-          title={study.title}
-          index={index}
-          subtitle={study.subtitle}
-          onClick={() => handleCardClick(study)}
-          setMaxHeight={updateHeight}
-        />
-      </div>
-    ))}
+        {/* 🔹 Case Study Grid (Scroll Only This Section) */}
+        <div className="relative mt-8 mb-8 sm:mt-12 sm:mb-14 px-4s sm:px-6s">
+          <div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6"
+            id="scrollable-grid"
+          >
+            {caseStudies.map((study, index) => (
+              <div key={index} className="w-full">
+                <CaseCard
+                  image={study.thumbnail_image}
+                  title={study.title}
+                  index={index}
+                  subtitle={study.subtitle}
+                  onClick={() => handleCardClick(study)}
+                  setMaxHeight={updateHeight}
+                />
+              </div>
+            ))}
 
-    {/* 🔹 Loader Trigger Element */}
-    {hasMore && (
-      <div ref={observerRef} className="flex justify-center mt-10 col-span-2">
-        <p className="text-gray-500">
-          {loadingMore ? 'Loading more...' : 'Scroll for more'}
-        </p>
-      </div>
-    )}
+            {/* 🔹 Loader Trigger Element */}
+            {hasMore && (
+              <div ref={observerRef} className="flex justify-center mt-8 sm:mt-10 col-span-full">
+                <p className="text-gray-500 text-sm sm:text-base">
+                  {loadingMore ? 'Loading more...' : 'Scroll for more'}
+                </p>
+              </div>
+            )}
 
-    {!hasMore && (
-      <div className="flex justify-center mt-10 col-span-2">
-        <p className="text-gray-400">All case studies loaded</p>
-      </div>
-    )}
-  </div>
-</div>
+            {!hasMore && (
+              <div className="flex justify-center mt-8 sm:mt-10 col-span-full">
+                <p className="text-gray-400 text-sm sm:text-base">All case studies loaded</p>
+              </div>
+            )}
+          </div>
+        </div>
       </section>
     </div>
   );

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 // import './hero.css'
-import dots from '../../assets/dotspng.png'
+import dots from '../../assets/homepageimage.png'
 
 const words = ['ENTERPRISE PLATFORMS', 'DATA', 'INTEGRATION', 'AI SOLUTIONS']
 
@@ -73,7 +73,7 @@ const Hero = () => {
     //   </div>
     // </section>
 
-  <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80 mt-10">
+  <section className="bg-gray-50s py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80 mt-10 lg:h-[425px] md:h-[425px]">
   <div className="max-w-7xls container w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 sm:gap-0 items-center">
     <div>
       <h1 className="ft-header !text-blacks">
@@ -86,7 +86,7 @@ const Hero = () => {
       <img
         src={dots}
         alt="Aveto Dots"
-        className="rounded-2xl shadow-lgs max-w-[240px] md:max-w-[280px] object-contain"
+        className="rounded-2xl shadow-lgs max-w-[auto] md:max-w-[400px] object-contain"
       />
     </div>
   </div>

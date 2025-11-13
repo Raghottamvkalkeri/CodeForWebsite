@@ -1,8 +1,12 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx,html}'],
-  darkMode: 'class', // or 'media'
+  content: [
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx,html}',
+    './node_modules/flowbite/**/*.js', // ✅ important
+  ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -12,7 +16,7 @@ module.exports = {
           200: '#bfdbfe',
           300: '#93c5fd',
           400: '#60a5fa',
-          500: '#3b82f6', // base
+          500: '#3b82f6',
           600: '#2563eb',
           700: '#1d4ed8',
           800: '#1e40af',
@@ -44,5 +48,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('flowbite/plugin')], // ✅ added Flowbite plugin
 };

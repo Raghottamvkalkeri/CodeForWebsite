@@ -194,7 +194,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <Link to="/case-studies" className={navLinkClass('/case-studies')}>Case Studies</Link>
+            <Link to="/case-studies" className={navLinkClass('/case-studies')}>Proof of Impact</Link>
 
             {/* Mobile Dropdown for Partners */}
             <div>
