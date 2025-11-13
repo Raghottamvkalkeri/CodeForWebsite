@@ -66,8 +66,8 @@ src/
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/yourusername/aveto-frontend.git
-cd aveto-frontend
+git clone https://github.com/Raghottamvkalkeri/CodeForWebsite.git
+cd CodeForWebsite
 ```
 
 ### 2️⃣ Install dependencies
@@ -86,30 +86,64 @@ http://localhost:5173
 
 ---
 
-## 🏗️ Build for Production
+## 🏗️ Build Commands
+
+### 🔹 Build for Dev / Staging
 ```bash
-npm run build
+npm run build:dev
 ```
-The production-ready files will be in the `dist/` directory.
+- Base path: `/dev/`
+- Output folder: `dist-dev`
+
+### 🔹 Build for Production
+```bash
+npm run build:prod
+```
+- Base path: `/website/`
+- Output folder: `dist-website`
+
+---
+
+## 🧰 Scripts (package.json)
+
+```json
+{
+  "scripts": {
+    "dev": "vite",
+    "build:dev": "vite build --mode dev",
+    "build:prod": "vite build --mode prod",
+    "preview": "vite preview"
+  }
+}
+```
+
+---
+
+## 🧱 Folder Output Summary
+
+| Mode | Base Path | Output Folder | Command |
+|------|------------|----------------|----------|
+| Dev | `/dev/` | `dist-dev` | `npm run build:dev` |
+| Prod | `/website/` | `dist-website` | `npm run build:prod` |
 
 ---
 
 ## 🧰 Recommended Setup
 
-- **Node.js:** v18+
-- **NPM:** v9+
-- **IDE:** VS Code (with Prettier + ESLint)
+- **Node.js:** v18+  
+- **NPM:** v9+  
+- **IDE:** VS Code (with Prettier + ESLint)  
 - **Browser:** Chrome / Edge (latest versions)
 
 ---
 
 ## 📈 Future Enhancements
 
-- 🌐 Add multilingual support (i18n)
-- 🧩 Integrate animations using Framer Motion
-- 🔐 Add authentication for client dashboards
-- 🧠 Implement API-based dynamic data loading
-- 🚢 CI/CD deployment with GitHub Actions or Netlify
+- 🌐 Add multilingual support (i18n)  
+- 🧩 Integrate animations using Framer Motion  
+- 🔐 Add authentication for client dashboards  
+- 🧠 Implement API-based dynamic data loading  
+- 🚢 CI/CD deployment with GitHub Actions or Netlify  
 
 ---
 
@@ -121,4 +155,5 @@ The production-ready files will be in the `dist/` directory.
 ---
 
 ## 📝 License
+
 This project is licensed under the **MIT License** — feel free to modify and distribute it.
