@@ -229,8 +229,8 @@
 
 // export default CaseStudyPage2;
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
@@ -241,130 +241,200 @@ import { useBanner } from '../../context/BannerContext';
 const CaseStudyPage2 = () => {
   const { data, loading, error } = useBanner();
   const [caseStudies, setCaseStudies] = useState([]);
-  const [selectedStudy, setSelectedStudy] = useState(null);
-  const [maxHeight, setMaxHeight] = useState(0);
+  const [filteredStudies, setFilteredStudies] = useState([]);
+
+  const navigate = useNavigate();
+
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
 
-  const observerRef = useRef(null);
-  const navigate = useNavigate();
+  const [categories, setCategories] = useState([{ id: 0, name: "All", slug: "all" }]);
+  const [activeCategory, setActiveCategory] = useState(0);
+  const [categoryCounts, setCategoryCounts] = useState({});
 
-  // ✅ Fetch paginated case studies
-  const fetchCaseStudies = useCallback(async (pageNum) => {
+  // Fetch case studies
+  const fetchCaseStudies = async (pageNum = 1, categoryId = 0) => {
     if (loadingMore || !hasMore) return;
     setLoadingMore(true);
-
+  
     try {
-      const res = await fetch(`https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=6`);
+      const res = await fetch(
+        `https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=6&category=${categoryId}`
+      );
       const data = await res.json();
-
-      if (data.data && data.data.length > 0) {
-        setCaseStudies((prev) => {
-          const newData = data.data.filter(
-            (item) => !prev.some((p) => p.id === item.id)
-          );
-          return [...prev, ...newData];
+  
+      // Set categories only once — on first ALL fetch
+      if (categoryId === 0 && pageNum === 1) {
+        const counts = {};
+  
+        data.data.forEach(item => {
+          counts[item.category_id] = (counts[item.category_id] || 0) + 1;
         });
-        setHasMore(pageNum < data.total_pages);
-      } else {
-        setHasMore(false);
+  
+        setCategoryCounts(counts);
+  
+        const validCategories = data.categories.filter(cat => counts[cat.id] > 0);
+  
+        setCategories([
+          { id: 0, name: "All", slug: "all" },
+          ...validCategories
+        ]);
       }
+  
+      // When switching category, don't append. Replace.
+      if (pageNum === 1) {
+        setCaseStudies(data.data || []);
+      } else {
+        // For load more
+        if (data.data && data.data.length > 0) {
+          setCaseStudies(prev => {
+            const newData = data.data.filter(
+              item => !prev.some(p => p.id === item.id)
+            );
+            return [...prev, ...newData];
+          });
+        }
+      }
+  
+      setHasMore(data.total_pages && pageNum < data.total_pages);
+  
     } catch (err) {
       console.error("Error fetching case studies:", err);
     } finally {
       setLoadingMore(false);
     }
-  }, [loadingMore, hasMore]);
+  };
 
-  // ✅ Initial fetch
+  // Initial fetch
   useEffect(() => {
     fetchCaseStudies(1);
-  }, [fetchCaseStudies]);
+  }, []);
 
-  // ✅ Infinite scroll observer
+  // Filter when tab changes
+  useEffect(() => {
+    setFilteredStudies(caseStudies);
+  }, [caseStudies]);
+
+  // Infinite scroll using window.scroll
+  // useEffect(() => {
+  //   let fetching = false;
+  //   const handleScroll = () => {
+  //     if (
+  //       window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
+  //       !fetching &&
+  //       hasMore
+  //     ) {
+  //       fetching = true;
+  //       setPage(prev => prev + 1);
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => window.removeEventListener('scroll', handleScroll);
+  // }, [hasMore]);
 
 
   useEffect(() => {
-    if (!hasMore || loadingMore) return;
-
-    const scrollContainer = document.getElementById("scrollable-grid");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !loadingMore && hasMore) {
-          setPage((prev) => prev + 1);
-        }
-      },
-      {
-        root: scrollContainer, // 👈 observe inside grid scroll
-        threshold: 0.5,
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
+        !loadingMore && // rely on state instead of local variable
+        hasMore
+      ) {
+        setPage(prev => prev + 1);
       }
-    );
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [loadingMore, hasMore]);
 
-    if (observerRef.current) observer.observe(observerRef.current);
-    return () => observer.disconnect();
-  }, [hasMore, loadingMore]);
-
-  // ✅ Fetch next page when page number changes
+  // Fetch next page when `page` changes
   useEffect(() => {
     if (page > 1) fetchCaseStudies(page);
-  }, [page, fetchCaseStudies]);
+  }, [page]);
 
   const handleCardClick = (study) => {
     const encodedTitle = encodeURIComponent(study.slug);
     location.href = `/case-studies/${encodedTitle}`;
   };
 
-  const updateHeight = (h) => {
-    setMaxHeight((prev) => (h > prev ? h : prev));
+  // Tab click handler
+  const handleTabClick = (catId) => {
+    setActiveCategory(catId); // highlight the tab
+
+    // Reset state for new tab
+    setCaseStudies([]);       // clear previous data
+    setFilteredStudies([]);   // clear filtered
+    setPage(1);               // start from first page
+    setHasMore(true);         // allow loading more
   };
+
+  // Fetch next page when `page` changes (same as before)
+  useEffect(() => {
+    fetchCaseStudies(page, activeCategory); // pass activeCategory if needed for API
+  }, [page, activeCategory]);
 
   if (loading) return <p>Loading banner...</p>;
   if (error) return <p>Error loading banner</p>;
 
   return (
     <div className="w-full">
-      {/* 🔹 Banner Section */}
       <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
 
-      {/* 🔹 Content */}
       <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
         <p className="text-left page-paragraph mb-4">
           <span className="font-bolds">{data.description}</span>
         </p>
 
-        {/* 🔹 Case Study Grid (Scroll Only This Section) */}
-        <div className="relative mt-8 mb-8 sm:mt-12 sm:mb-14 px-4s sm:px-6s">
-          <div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6"
-            id="scrollable-grid"
-          >
-            {caseStudies.map((study, index) => (
-              <div key={index} className="w-full">
+        {/* Tabs */}
+        <div className="flex gap-6 mb-10 overflow-x-auto no-scrollbar py-2 whitespace-nowrap">
+          {categories.map(cat => (
+            <button
+              key={cat.id}
+              onClick={() => handleTabClick(cat.id)}
+              className={`
+                relative px-2 py-1 font-medium text-[#10375C] page-paragraph
+                ${activeCategory === cat.id ? "after:block after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-[#10375C]" : ""}
+                hover:bg-[#10375C] hover:text-white transition-colors rounded-md
+              `}
+            >
+              {cat.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Case Study Grid */}
+        <div className="relative mt-8 mb-8 sm:mt-12 sm:mb-14 px-4 sm:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
+            {filteredStudies.map((study, index) => (
+              <div key={study.id || index} className="w-full">
                 <CaseCard
                   image={study.thumbnail_image}
                   title={study.title}
                   index={index}
                   subtitle={study.subtitle}
                   onClick={() => handleCardClick(study)}
-                  setMaxHeight={updateHeight}
                 />
               </div>
             ))}
 
-            {/* 🔹 Loader Trigger Element */}
-            {hasMore && (
-              <div ref={observerRef} className="flex justify-center mt-8 sm:mt-10 col-span-full">
-                <p className="text-gray-500 text-sm sm:text-base">
-                  {loadingMore ? 'Loading more...' : 'Scroll for more'}
-                </p>
+            {loadingMore && (
+              <div className="flex justify-center mt-8 sm:mt-10 col-span-full">
+                <p className="text-gray-500 text-sm sm:text-base">Loading more...</p>
               </div>
             )}
 
-            {!hasMore && (
+            {/* {!hasMore && !loadingMore && filteredStudies.length > 0 && (
               <div className="flex justify-center mt-8 sm:mt-10 col-span-full">
                 <p className="text-gray-400 text-sm sm:text-base">All case studies loaded</p>
+              </div>
+            )} */}
+
+            {!loadingMore && filteredStudies.length === 0 && (
+              <div className="flex justify-center mt-8 sm:mt-10 col-span-full">
+                <p className="text-gray-400 text-sm sm:text-base">No case studies found</p>
               </div>
             )}
           </div>

@@ -22,7 +22,8 @@ const TeamCarousel = () => {
       topRight: "https://avetoconsulting.com/assets/images/Image_20251107_122932_677-img_69148949c35e8.webp",
       bottom: "https://avetoconsulting.com/assets/images/Image_20251107_122932_677-img_69148949c35e8.webp",
     },
-    {id: 3,
+    {
+      id: 3,
       topLeft: "http://avetoconsulting.com/assets/images/SAP%20LABS1-img_691489deda15e.webp",
       topRight: "https://avetoconsulting.com/assets/images/SAP%20LABS2-img_69148a3aab893.webp",
       bottom: "https://avetoconsulting.com/assets/images/Image_20250823_143957_851-img_69148b0ada428.webp",
@@ -32,7 +33,7 @@ const TeamCarousel = () => {
   return (
     <div className="relative overflow-hidden mx-auto max-w-7xl shadow-2xl bg-white">
       <Swiper
-        modules={[Navigation, Pagination, Autoplay ]}
+        modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
         slidesPerView={1}
         navigation={{
@@ -47,37 +48,66 @@ const TeamCarousel = () => {
           swiper.navigation.update();
         }}
         pagination={{ clickable: true }}
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        // autoplay={{ delay: 5000, disableOnInteraction: false }}
         className="h-full"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             {/* === Full Image Collage with Gaps === */}
-            <div className="grid grid-cols-2 grid-rows-2 gap-2 w-full h-[600px] md:h-[700px] p-2 bg-white">
+
+            
+
+            <div
+              className="
+    grid grid-cols-2 gap-2 w-full p-2 bg-white
+    md:grid-rows-2 md:h-[700px]
+  "
+            >
               {/* Top Left */}
-              <div className="relative w-full h-full overflow-hidden rounded-lg">
+              <div
+                className="
+      relative w-full overflow-hidden rounded-lg
+      aspect-[4/3] md:aspect-auto md:h-full
+    "
+              >
                 <img
                   src={slide.topLeft}
-                  alt="Top Left"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="
+        absolute md:static inset-0 w-full h-full object-cover
+      "
+                  alt=""
                 />
               </div>
 
               {/* Top Right */}
-              <div className="relative w-full h-full overflow-hidden rounded-lg">
+              <div
+                className="
+      relative w-full overflow-hidden rounded-lg
+      aspect-[4/3] md:aspect-auto md:h-full
+    "
+              >
                 <img
                   src={slide.topRight}
-                  alt="Top Right"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="
+        absolute md:static inset-0 w-full h-full object-cover
+      "
+                  alt=""
                 />
               </div>
 
-              {/* Bottom (Spanning Both Columns) */}
-              <div className="col-span-2 relative w-full h-full overflow-hidden rounded-lg">
+              {/* Bottom (Full Width) */}
+              <div
+                className="
+      col-span-2 relative w-full overflow-hidden rounded-lg
+      aspect-[16/9] md:aspect-auto md:h-full
+    "
+              >
                 <img
                   src={slide.bottom}
-                  alt="Bottom"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="
+        absolute md:static inset-0 w-full h-full object-cover
+      "
+                  alt=""
                 />
               </div>
             </div>

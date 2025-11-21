@@ -1,136 +1,113 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CaseCard from '../../components/caseCard';
-import { useBanner } from '../../context/BannerContext';
+import CaseCard from "../../components/caseCard";
 
-const CaseStudyCarouselPage = () => {
-  const { data, loading, error } = useBanner();
+const CaseStudyCarouselPage = ({ categoryId = 0 , skipId }) => {
   const [caseStudies, setCaseStudies] = useState([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
   const [maxHeight, setMaxHeight] = useState(0);
-  const navigate = useNavigate();
+  const swiperRef = useRef(null);
+
+  const fetchCaseStudies = async (pageNum = 1) => {
+    if (loadingMore || !hasMore) return;
+    setLoadingMore(true);
+
+    const perPage = skipId ? 7 : 6; // Fetch an extra item if skipping one
+
+    try {
+      const res = await fetch(
+        `https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=${perPage}&category=${categoryId}`
+      );
+      const data = await res.json();
+
+      if (data.data && data.data.length > 0) {
+        setCaseStudies((prev) => {
+          const newData = data.data.filter(
+            (item) => !prev.some((p) => p.id === item.id)
+          );
+          return [...prev, ...newData];
+        });
+        setHasMore(pageNum < data.total_pages);
+      } else {
+        setHasMore(false);
+      }
+    } catch (err) {
+      console.error("Error fetching case studies:", err);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
 
   useEffect(() => {
-    fetch('https://avetoconsulting.com/apis/casestudies.php')
-      .then((res) => res.json())
-      .then((data) => {
-        setCaseStudies(data);
-      })
-      .catch((err) => console.error('Error fetching case studies:', err));
-  }, []);
+    setCaseStudies([]);
+    setPage(1);
+    setHasMore(true);
+    fetchCaseStudies(1);
+  }, [categoryId]);
 
-  if (loading) return <p>Loading banner...</p>;
-  if (error) return <p>Error loading banner</p>;
+  // Track tallest card height
+  const updateHeight = (h) => setMaxHeight((prev) => (h > prev ? h : prev));
 
+  // Handle card click
   const handleCardClick = (study) => {
     const encodedTitle = encodeURIComponent(study.slug);
-    // navigate(`/case-studies/${encodedTitle}`);
-    location.href = `/case-studies/${encodedTitle}`;
+    location.href = `/case-studies/${encodedTitle}?category=${categoryId}`;
   };
 
-  // Track tallest card height dynamically
-  const updateHeight = (h) => {
-    setMaxHeight((prev) => (h > prev ? h : prev));
+  // Detect when user reaches the last slide and fetch next page
+  const handleSlideChange = (swiper) => {
+    if (swiper.activeIndex >= caseStudies.length - 1 && hasMore && !loadingMore) {
+      setPage((prev) => prev + 1);
+    }
   };
+
+  useEffect(() => {
+    if (page > 1) fetchCaseStudies(page);
+  }, [page]);
 
   return (
-    // <div className="w-full">
-    //   {/* Banner Section */}
-    //
-    //
-    //   {/* Intro Section */}
-    //   <section className="">
-    //     <p className="text-left page-paragraph mb-6">
-    //       <span className="font-bold">{data.description}</span>
-    //     </p>
-    //
-    //     {/* 🔹 Carousel Section */}
-    //     <div className="mt-14 mb-14">
-    //       <Swiper
-    //         modules={[Navigation]}
-    //         navigation
-    //         spaceBetween={30}
-    //         slidesPerView={3}
-    //         centeredSlides={false}
-    //         loop={true}
-    //         breakpoints={{
-    //           320: { slidesPerView: 1 },
-    //           640: { slidesPerView: 2 },
-    //           1024: { slidesPerView: 2 },
-    //         }}
-    //       >
-    //         {caseStudies.map((study, index) => (
-    //           <SwiperSlide key={index}>
-    //             <div style={{ height: maxHeight || 'auto' }}>
-    //               <CaseCard
-    //                 image={study.thumbnail_image}
-    //                 title={study.title}
-    //                 subtitle={study.subtitle}
-    //                 onClick={() => handleCardClick(study)}
-    //                 setMaxHeight={updateHeight}
-    //               />
-    //             </div>
-    //           </SwiperSlide>
-    //         ))}
-    //       </Swiper>
-    //     </div>
-    //   </section>
-    // </div>
-
-      <div className="w-full">
-          {/* Banner Section */}
-
-          {/* Intro Section */}
-          <section className="">
-              <p className="text-left page-paragraph mb-6">
-                  <span className="font-bold">{data.description}</span>
-              </p>
-
-              {/* 🔹 Carousel Section */}
-              <div className="mt-10 mb-10">
-                  <Swiper
-                      modules={[Navigation]}
-                      navigation
-                      spaceBetween={10} // reduced spacing for tighter fit
-                      slidesPerView={2.5} // now fits 2.5 boxes per view
-                      centeredSlides={false}
-                      loop={true}
-                      breakpoints={{
-                          320: { slidesPerView: 1 },
-                          640: { slidesPerView: 1.5 },
-                          1024: { slidesPerView: 2.5 },
-                      }}
-                  >
-                      {caseStudies.map((study, index) => (
-                          <SwiperSlide key={index}>
-                              <div
-                                  style={{
-                                      height: maxHeight
-                                          ? `${parseInt(maxHeight) * 0.9}px` // slightly smaller height
-                                          : 'auto',
-                                      transform: 'scale(0.95)', // subtle reduction
-                                      transformOrigin: 'top left',
-                                  }}
-                              >
-                                  <CaseCard
-                                      image={study.thumbnail_image}
-                                      index={index}
-                                      title={study.title}
-                                      subtitle={study.subtitle}
-                                      onClick={() => handleCardClick(study)}
-                                      setMaxHeight={updateHeight}
-                                  />
-                              </div>
-                          </SwiperSlide>
-                      ))}
-                  </Swiper>
-              </div>
-          </section>
-      </div>
-
+    <div className="w-full">
+      <Swiper
+        modules={[Navigation]}
+        navigation
+        spaceBetween={10}
+        slidesPerView={2.5}
+        onSlideChange={handleSlideChange}
+        loop={false} // loop=false so that last slide triggers fetch
+        breakpoints={{
+          320: { slidesPerView: 1 },
+          640: { slidesPerView: 1.5 },
+          1024: { slidesPerView: 2.5 },
+        }}
+      >
+        {caseStudies.filter((study) => Number(study.id) !== Number(skipId)).map((study, index) => ( 
+          <SwiperSlide key={study.id}>
+            <div
+              style={{
+                height: maxHeight ? `${parseInt(maxHeight) * 0.95}px` : "auto",
+                transform: "scale(0.95)",
+                transformOrigin: "top left",
+              }}
+            >
+              <CaseCard
+                image={study.thumbnail_image}
+                index={index}
+                title={study.title}
+                subtitle={study.subtitle}
+                onClick={() => handleCardClick(study)}
+                setMaxHeight={updateHeight}
+              />
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      {loadingMore && <p className="text-center mt-4">Loading more...</p>}
+    </div>
   );
 };
 

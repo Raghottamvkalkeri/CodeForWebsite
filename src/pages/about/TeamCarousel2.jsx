@@ -188,4 +188,34 @@ const TeamCarousel2 = () => {
   );
 };
 
+//  old code 
+<div className="grid grid-cols-2 grid-rows-2 gap-2 w-full h-[600px] md:h-[700px] p-2 bg-white">
+              {/* Top Left */}
+              <div className="relative w-full h-full overflow-hidden rounded-lg">
+                <img
+                  src={slide.topLeft}
+                  alt="Top Left"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Top Right */}
+              <div className="relative w-full h-full overflow-hidden rounded-lg">
+                <img
+                  src={slide.topRight}
+                  alt="Top Right"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+
+              {/* Bottom (Spanning Both Columns) */}
+              <div className="col-span-2 relative w-full h-full overflow-hidden rounded-lg">
+                <img
+                  src={slide.bottom}
+                  alt="Bottom"
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
 export default TeamCarousel2;

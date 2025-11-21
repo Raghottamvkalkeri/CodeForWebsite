@@ -115,9 +115,10 @@ const CaseStudyDetail = () => {
             </section>
             <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
             <h4 className="page-subheader mb-4">
-                       Read Case Study
+                    Discover More Case Studies 
                     </h4>
-                <CaseStudyCarouselPage />
+                   
+                <CaseStudyCarouselPage categoryId={caseStudy.category_id} skipId={caseStudy.id} />
             </section>
         </div>
     );
