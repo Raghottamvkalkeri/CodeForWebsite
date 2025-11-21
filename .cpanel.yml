@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/ih2filkizh28/public_html/website
+    - cd /home/ih2filkizh28/repositories/CodeForWebsite
+    - npm install
+    - npm run build
+    - find $DEPLOYPATH -mindepth 1 ! -name '.htaccess' -exec rm -rf {} +
+    - cp -a dist-website/. $DEPLOYPATH/
