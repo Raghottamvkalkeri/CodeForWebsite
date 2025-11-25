@@ -31,7 +31,7 @@ const TeamCarousel = () => {
   ];
 
   return (
-    <div className="relative overflow-hidden mx-auto max-w-7xl shadow-2xl bg-white">
+    <div className="relative overflow-hidden mx-auto max-w-7xl  bg-white">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={0}
@@ -59,8 +59,8 @@ const TeamCarousel = () => {
 
             <div
               className="
-    grid grid-cols-2 gap-2 w-full p-2 bg-white
-    md:grid-rows-2 md:h-[700px]
+    grid grid-cols-2 gap-4 w-full p-2 bg-white
+    md:grid-rows-2 md:h-[700px] 
   "
             >
               {/* Top Left */}

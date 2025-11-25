@@ -117,7 +117,10 @@ const AboutUs = () => {
 
       <section className="bg-white py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
       <div className="container mx-auto">
-        <div className="relative bg-[#edefeb] !mt-[64px]s !mb-[64px] pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
+        
+      </div>
+      </section>
+<div className="relative bg-[#edefeb] !mt-[64px]s  pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
 
           {/* Overlay */}
           {/* <div className="absolute inset-0 bg-gray-800/50"></div> */}
@@ -139,9 +142,6 @@ const AboutUs = () => {
             </span>
           </div>
         </div>
-      </div>
-      </section>
-
 
     </div>
   );
