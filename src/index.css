@@ -6,7 +6,7 @@
 
 
 .webft-header {
-  font-family: "Merriweather", serif;
+  font-family: "inter", serif;
   font-style: normal;
   font-weight: lighter;
   font-optical-sizing: auto;
@@ -21,7 +21,7 @@
   /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
   @apply lg:text-[54px] md:text-[48px] sm:text-[32px] font-bold;
   /* font-family: "Merriweather", serif !important; */
-  font-family: "Inter Tight", serif !important;
+  font-family: "Inter", serif !important;
   font-optical-sizing: auto;
 }
 /* Applid for header and hero banners for all pages */
@@ -29,7 +29,7 @@
 .ft-header-inter {
   /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
   @apply lg:text-[54px] md:text-[48px] sm:text-[32px] font-bold;
-  font-family: "Inter Tight", serif !important;
+  font-family: "Inter", serif !important;
   font-optical-sizing: auto;
 }
 
@@ -53,19 +53,19 @@
 
 .page-subheader {
   @apply text-sky-500 mb-4 !text-[28px] leading-[1.3] font-bold;
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .page-secondary-header {
   @apply font-semibold leading-[1.4] mb-4; /* Default for desktops */
   @apply lg:text-[32px] md:text-[32px] sm:text-[16px]; /* Tablets and Mobiles */
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 .page-paragraph {
   @apply text-[19px] font-normal leading-[1.6]; /* Default for desktops */
   @apply lg:text-[19px] md:text-[14px] sm:text-[12px]; /* Tablets and Mobiles */
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -92,7 +92,7 @@
 
   
   p {
-    font-family: 'Inter Tight', sans-serif !important;
+    font-family: 'Inter', sans-serif !important;
   }
 
 
@@ -100,21 +100,21 @@
 /* globals.css */
 /* Applied for all p tags depends on usage used different classes */
 .p-text {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
 }
 
 .caption-text {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.4;
 }
 
 .caption-text-medium {
-  font-family: 'Inter Tight', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4;
@@ -123,7 +123,7 @@
 
 
 .inter-text {
-  font-family: "Inter Tight", sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   /* font-weight: 400; */
   font-optical-sizing: auto;

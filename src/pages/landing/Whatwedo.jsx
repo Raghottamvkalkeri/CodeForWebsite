@@ -59,7 +59,7 @@ const WhatWeDo = () => {
 
         {/* Existing Card Grid */}
         <h2 className="page-subheader pt-[64px]">Areas of specialization</h2>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch " >
           {/* Left Column */}
           <div className="flex flex-col gap-6">
             <div className="bg-white shadow-md rounded-xl p-6">
@@ -80,7 +80,7 @@ const WhatWeDo = () => {
           </div>
 
           {/* Center Column */}
-          <div className="bg-red-600 text-white shadow-md rounded-xl p-6 flex flex-col justify-center">
+          <div className="bg-sky-500 text-white shadow-md rounded-xl p-6 flex flex-col justify-center">
             <h3 className="text-lg page-secondary-header font-semibold mb-3 !text-[24px]">
               Enterprise Platform <span className="font-light">at the Core.</span>
             </h3>

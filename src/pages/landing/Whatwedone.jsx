@@ -85,7 +85,7 @@ export default function ProofOfImpact() {
       {/* Header */}
       <div className="max-w-5xls container mx-auto">
         <h2 className="page-subheader">
-          Proof of Impact <span className="font-normal">Outcomes that speak louder than words</span>
+           <span className="font-normal">Outcomes that speak louder than words</span>
         </h2>
         <p className="page-paragraph">
           {/* Every engagement is measured by one yardstick: did we make it easier,

@@ -115,7 +115,7 @@ const AboutUs = () => {
 
       <Whatwestandfor />
 
-      <section className="bg-white py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+      <section className="bg-white py-0 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
       <div className="container mx-auto">
         
       </div>
