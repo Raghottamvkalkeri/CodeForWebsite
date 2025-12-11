@@ -29,12 +29,12 @@ const Clients = () => {
       }, []);
 
     return (
-        <section className="py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+        <section className="py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
             <div className="max-w-7xls container mx-auto mb-10">
             <h2 className="page-subheader pb-5">Our Clients</h2>
 
             {/* Top Row - Left to Right */}
-            <Marquee gradient={true} gradientWidth={50} speed={25} className="mb-6" pauseOnHover>
+            <Marquee gradient={true} gradientWidth={50} speed={25} className=" mb-6" pauseOnHover>
                 {logosArr1.map((logo, idx) => (
                     <img
                         key={'top-' + idx}
@@ -47,7 +47,7 @@ const Clients = () => {
             </Marquee>
 
             {/* Bottom Row - Right to Left */}
-            <Marquee gradient={true} gradientWidth={50} speed={25} direction="right" className="mt-20 mb-6" pauseOnHover>
+            <Marquee gradient={true} gradientWidth={50} speed={25} direction="right" className="mt-10 mb-6" pauseOnHover>
                 {logosArr2.map((logo, idx) => (
                     <img
                         key={'bottom-' + idx}

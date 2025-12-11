@@ -19,7 +19,7 @@ const PartnersSection = () => {
   }, []);
 
   return (
-    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
       <div className="max-w-7xls container mx-auto grid md:grid-cols-1 gap-10 items-start">
         {/* Left Column - Heading */}
         <div className="md:col-span-1">

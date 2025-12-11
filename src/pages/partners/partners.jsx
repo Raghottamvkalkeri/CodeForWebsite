@@ -4,7 +4,7 @@ const Partners = () => {
   return (
     <div className="font-sans text-gray-800">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-16 px-6 md:px-80 lg:px-80 mt-10 h-[405px]">
+      <section className="bg-gray-50 py-16 px-6 md:px-40 lg:px-40 mt-10 h-[405px]">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-light leading-snug">
             <span className="text-orange-500 font-semibold">AVETO Consulting</span> and{" "}
@@ -16,7 +16,7 @@ const Partners = () => {
       </section>
 
       {/* Strategic Partnership */}
-      <section className="px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80 py-16">
+      <section className="px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40 py-16">
         <h2 className="page-subheader">Strategic Partnership</h2>
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Left Column */}
@@ -78,7 +78,7 @@ const Partners = () => {
       </section>
 
       {/* Our Story */}
-      <section className="px-6 md:px- lg:px-80 xl:px-80 2xl:px-80 py-16 bg-gray-50">
+      <section className="px-6 md:px- lg:px-40 xl:px-40 2xl:px-40 py-16 bg-gray-50">
         <h2 className="page-subheader">Our Story</h2>
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <div>

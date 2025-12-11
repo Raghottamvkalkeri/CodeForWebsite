@@ -15,7 +15,7 @@ const whatwestandfor = [{
 
 const Whatwestandfor = () => {
   return (
-    <section className="bg-white py-16 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
+    <section className="bg-white py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
       <div className="container mx-auto px-4s"> 
         <h2 className="page-subheader">
           What we stand for

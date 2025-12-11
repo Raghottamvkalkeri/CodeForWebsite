@@ -57,7 +57,7 @@ const ServicesPage = () => {
 
 
         {/* Service Cards */}
-        <section className="bg-white py-16 px-6 md:px-80 relative">
+        <section className="bg-white py-16 px-6 md:px-40 relative">
           {service?.toLowerCase() === "custom-solution" && (
 
             <div className="container mx-auto">
@@ -112,14 +112,14 @@ const ServicesPage = () => {
 
         {/* Used only for oracle */}
         {service?.toLowerCase() === "oracle" && (
-          <section className="bg-gray-100 py-16 px-6 md:px-80">
+          <section className="bg-gray-100 py-16 px-6 md:px-40">
             <Servicedetails />
           </section>
         )}
 
         {/* Highlights Section */}
         {data.highlights_heading !== '' && (
-          <section className="bg-gray-50 py-16 px-6 md:px-80">
+          <section className="bg-gray-50 py-16 px-6 md:px-40">
             <div className="max-w-7xls container mx-auto text-center mb-12">
               <h2 className="text-left page-subheader">
                 {data.highlights_heading && data.highlights_heading.trim() !== ""

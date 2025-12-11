@@ -383,7 +383,7 @@ const CaseStudyPage2 = () => {
     <div className="w-full">
       <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
 
-      <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-80">
+      <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-40">
         <p className="text-left page-paragraph mb-4">
           <span className="font-bolds">{data.description}</span>
         </p>
@@ -406,7 +406,7 @@ const CaseStudyPage2 = () => {
         </div>
 
         {/* Case Study Grid */}
-        <div className="relative mt-8 mb-8 sm:mt-12 sm:mb-14 px-4 sm:px-6">
+        <div className="relative mt-8 mb-8 sm:mt-12 sm:mb-14 ">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6">
             {filteredStudies.map((study, index) => (
               <div key={study.id || index} className="w-full">

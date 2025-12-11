@@ -1,6 +1,6 @@
 export default function BannerSection({ subtitle, title, description, image }) {
   return (
-    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-80 mt-10 lg:h-[425px] md:h-[425px]">
+    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-40 mt-10 lg:h-[425px] md:h-[425px]">
       <div
         className={`max-w-7xls container mx-auto grid gap-12 sm:gap-0 h-full ${
           image ? "md:grid-cols-[60%_40%]" : "md:grid-cols-1"

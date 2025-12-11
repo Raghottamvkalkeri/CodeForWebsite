@@ -56,10 +56,10 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300 ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadows-md transition-transform duration-300  ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
         }`}
     >
-      <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8 ml-30">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="w-32">
@@ -69,7 +69,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-6 text-base font-medium items-center relative page-paragraph">
+          <nav className="hidden md:flex gap-6 text-base font-medium items-center relative page-paragraph mr-30">
             <Link to="/" className={navLinkClass('/')}>Home</Link>
             <Link to="/about" className={navLinkClass('/about')}>About Us</Link>
 

@@ -12,10 +12,18 @@
   font-optical-sizing: auto;
 }
 
+.header{
+   @apply lg:text-[30px] md:text-[27px] sm:text-[25px] font-bold text-[#1e2939];
+   font-family: "Inter", serif !important;
+  font-optical-sizing: auto;
+}
 
 
-
-
+.s-header{
+ @apply lg:text-[40px] md:text-[35px] sm:text-[28px] italic text-[#4a5565];
+   font-family: "Inter", serif !important;
+  font-optical-sizing: auto;
+}
 /* Applid for header and hero banners for all pages */
 .ft-header {
   /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
