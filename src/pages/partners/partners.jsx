@@ -4,7 +4,7 @@ const Partners = () => {
   return (
     <div className="font-sans text-gray-800">
       {/* Hero Section */}
-      <section className="bg-gray-50 py-16 px-6 md:px-40 lg:px-40 mt-10 h-[405px]">
+      <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 h-[405px]">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-3xl md:text-4xl font-light leading-snug">
             <span className="text-orange-500 font-semibold">AVETO Consulting</span> and{" "}

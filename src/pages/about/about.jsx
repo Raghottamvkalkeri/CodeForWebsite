@@ -52,7 +52,7 @@ const AboutUs = () => {
       <BannerSection {...bannerData} />
 
       {/* 🔹 Intro Content */}
-      <section className="bg-white text-slate-800  px-6 sm:px-10 md:px-40 lg:px-40 xl:px-40 2xl:px-40">
+      <section className="bg-white text-slate-800   py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
 
         <div className="container mx-auto px-4s">
           <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>

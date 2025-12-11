@@ -29,7 +29,7 @@ const Clients = () => {
       }, []);
 
     return (
-        <section className="py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
+        <section className="py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
             <div className="max-w-7xls container mx-auto mb-10">
             <h2 className="page-subheader pb-5">Our Clients</h2>
 

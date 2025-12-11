@@ -21,7 +21,7 @@ const whatwedo = [
 
 const WhatWeDo = () => {
   return (
-    <section className="bg-white py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
+    <section className="bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
       <div className="container mx-auto px-4">
         <h2 className="page-subheader">What we do</h2>
 

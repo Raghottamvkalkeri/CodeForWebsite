@@ -383,7 +383,7 @@ const CaseStudyPage2 = () => {
     <div className="w-full">
       <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} />
 
-      <section className="bg-white text-slate-800 py-16 px-6 sm:px-10 md:px-40">
+      <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
         <p className="text-left page-paragraph mb-4">
           <span className="font-bolds">{data.description}</span>
         </p>

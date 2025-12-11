@@ -119,7 +119,7 @@ const ServicesPage = () => {
 
         {/* Highlights Section */}
         {data.highlights_heading !== '' && (
-          <section className="bg-gray-50 py-16 px-6 md:px-40">
+          <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
             <div className="max-w-7xls container mx-auto text-center mb-12">
               <h2 className="text-left page-subheader">
                 {data.highlights_heading && data.highlights_heading.trim() !== ""

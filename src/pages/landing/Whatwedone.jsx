@@ -81,7 +81,7 @@ export default function ProofOfImpact() {
   }, []);
 
   return (
-    <section className="font-sans text-gray-800 py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40">
+    <section className="font-sans text-gray-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
       {/* Header */}
       <div className="max-w-5xls container mx-auto">
         <h2 className="page-subheader">

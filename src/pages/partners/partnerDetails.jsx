@@ -88,7 +88,7 @@ const PartnerDetails = () => {
       </section> */}
 
       {/* 🔹 Our Story Section */}
-      <section className="bg-white px-6 md:px-40 lg:px-40 pb-16">
+      <section className="bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 pb-16">
        <div className="max-w-6xls container mx-auto">
        <h2 className="page-subheader mb-10">Our Story</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start w-full">

@@ -71,21 +71,21 @@ const Hero = () => {
     //       />
     //     </div>
     //   </div>
-    // </section>
+    // </section>//bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40
 
-  <section className="bg-gray-50s py-16 px-6 md:px-20 lg:px-40 xl:px-40 2xl:px-40 mt-10 lg:h-[425px] md:h-[425px]">
+  <section className="bg-gray-50s bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[425px] md:h-[425px]">
   <div className="max-w-7xls container w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 sm:gap-0 items-center">
     <div>
-      <h1 className='header mb-5 leading-[1.5]' >
+      <h1 className='header mb-5 leading-[1]' >
         Experts in Enterprise Platforms. <br/> Driving real outcomes through dependable delivery. 
-      </h1>
+      </h1> 
       <br />
       <h1 className="ft-header !text-blacks">
         We are AVETO
       </h1>
       
       <h5 className='s-header'>
-        Build to Solve
+        Built to Solve
       </h5>
     </div>
 
