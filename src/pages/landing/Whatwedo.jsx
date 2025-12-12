@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 
 const whatwedo = [
   {
@@ -13,7 +12,7 @@ const whatwedo = [
     //     technology that adapts, scales, and creates lasting impact.
     //   </>
     <>
-    We are built to solve business challenges!  At AVETO, we solve problems by bringing deep specialization in Enterprise Platforms, Data, Integration, AI, and Custom Solutions.  We help organizations through three key offerings : 
+    We work with organizations on enterprise platforms, data, integration, AI, and custom solutions. Our work is delivered through three offerings: 
     </>
     ),
   },
@@ -35,24 +34,21 @@ const WhatWeDo = () => {
           <div>
             <h3 className="page-secondary-header pb-2 !text-[24px]">Consulting</h3>
             <p className="text-gray-600 page-paragraph">
-              We help organizations align technology with business goals through
-              strategy, process, and transformation advisory.
+              We support organizations in aligning technology with business goals through strategy, process, and architectural guidance.
             </p>
           </div>
 
           <div>
             <h3 className="page-secondary-header pb-2 !text-[24px]">Technology Services</h3>
             <p className="text-gray-600 page-paragraph">
-              We design, build, and manage enterprise platforms, integrations,
-              and data-driven solutions that deliver measurable impact.
+             We design, build, integrate, and manage enterprise platforms and data systems.
             </p>
           </div>
 
           <div>
             <h3 className="page-secondary-header pb-2 !text-[24px]">Workforce Solutions</h3>
             <p className="text-gray-600 page-paragraph">
-              We enable agility through on-demand expertise, bridging skill gaps
-              and accelerating business transformation.
+              We provide on-demand technology talent to meet project and capability needs.
             </p>
           </div>
         </div>
@@ -61,15 +57,15 @@ const WhatWeDo = () => {
         <h2 className="page-subheader pt-[64px]">Areas of specialization</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch " >
           {/* Left Column */}
-          <div className="flex flex-col gap-6">
-            <div className="bg-white shadow-md rounded-xl p-6">
+          <div className="flex flex-col gap-6 flex-1">
+            <div className="bg-white shadow-md rounded-xl p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">Data</h3>
               <p className="text-gray-600 page-paragraph">
                 Turn Insight into Impact. Harness the power of modern data platforms to drive confident decisions.
               </p>
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6">
+            <div className="bg-white shadow-md rounded-xl p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Custom Solutions
               </h3>
@@ -92,15 +88,15 @@ const WhatWeDo = () => {
           </div>
 
           {/* Right Column */}
-          <div className="flex flex-col gap-6">
-            <div className="bg-white shadow-md rounded-xl p-6">
+          <div className="flex flex-col gap-6 flex-1">
+            <div className="bg-white shadow-md rounded-xl p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">Integration</h3>
               <p className="text-gray-600 page-paragraph">
                 Connected by design. Seamless, secure connections across platforms, partners, and devices.
               </p>
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6">
+            <div className="bg-white shadow-md rounded-xl p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Artificial Intelligence
               </h3>

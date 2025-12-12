@@ -13,7 +13,7 @@
 }
 
 .header{
-   @apply lg:text-[30px] md:text-[27px] sm:text-[25px] font-bold text-[#6D6969];
+   @apply lg:text-[30px] md:text-[27px] sm:text-[25px] xl:text-[40px] 2xl:text-[42px] font-bold text-[#6D6969];
    font-family: "Inter", serif !important;
   font-optical-sizing: auto;
 }

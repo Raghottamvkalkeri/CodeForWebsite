@@ -1,4 +1,3 @@
-import React from 'react';
 import Card3d from '../../components/card3d';
 
 const TestimonialsSection = () => {
