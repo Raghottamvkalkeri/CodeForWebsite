@@ -71,8 +71,8 @@
 }
 
 .page-paragraph {
-  @apply text-[19px] font-normal leading-[1.6]; /* Default for desktops */
-  @apply lg:text-[19px] md:text-[14px] sm:text-[12px]; /* Tablets and Mobiles */
+  @apply text-[18px] font-normal leading-[1.6]; /* Default for desktops */
+  @apply lg:text-[18px] md:text-[14px] sm:text-[12px]; /* Tablets and Mobiles */
   font-family: 'Inter', sans-serif;
 }
 

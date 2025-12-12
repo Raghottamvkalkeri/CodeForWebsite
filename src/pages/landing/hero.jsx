@@ -74,29 +74,37 @@ const Hero = () => {
     // </section>//bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40
 
   <section className="min-h-screen flex items-center bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
-  <div className="max-w-7xls container w-full mx-auto grid md:grid-cols-[60%_40%] gap-12 sm:gap-0 items-center min-h-screen">
-    <div>
-      <h1 className='header mb-5 leading-[1.25]' >
-        Experts in Enterprise Platforms. <br/> Driving real outcomes through <br/>dependable delivery. 
-      </h1> 
-      <br/>
-      <h1 className="ft-header !text-blacks">
-        We are AVETO
-      </h1>
-      
-      <h5 className='s-header'>
-        Built to Solve
-      </h5>
-    </div>
+  
 
-    <div className="flex justify-end lg:justify-end">
-      <img
-        src={dots}
-        alt="Aveto Dots"
-        className="rounded-2xl shadow-lgs max-w-[auto] md:max-w-[400px] object-contain"
-      />
-    </div>
+  <div className="w-full min-h-screen container mx-auto grid md:grid-cols-[60%_40%] gap-12 items-center py-12">
+
+  
+  <div className="flex flex-col justify-center">
+    <h1 className="header mb-12 leading-[1.25] text-[42px] md:text-[54px] lg:text-[62px]">
+      Experts in Enterprise Platforms. <br /> 
+      Driving real outcomes through <br /> dependable delivery.
+    </h1>
+
+    <h1 className="ft-header !text-blacks text-[40px] md:text-[50px] lg:text-[56px] mt-10">
+      We are AVETO
+    </h1>
+
+    <h5 className="s-header text-[30px] md:text-[36px] lg:text-[40px] mt-4">
+      Built to Solve
+    </h5>
   </div>
+
+  
+  <div className="flex justify-end items-center h-full">
+    <img
+      src={dots}
+      alt="Aveto Dots"
+      className="rounded-2xl shadow-lgs object-cover h-full max-h-[80vh] w-auto"
+    />
+  </div>
+
+</div>
+
 </section>
 
   )

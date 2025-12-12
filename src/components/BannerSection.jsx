@@ -1,6 +1,14 @@
+import { useLocation } from "react-router-dom";
+
+
 export default function BannerSection({ subtitle, title, description, image }) {
+
+  const location = useLocation();
+  const customSolutinon = location.pathname === "/services/Custom%20Solution";
+
+
   return (//bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40
-    <section className="bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[425px] md:h-[425px]">
+    <section className={customSolutinon?"bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[500px] md:h-[425px]":"bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[425px] md:h-[425px]"}>
       <div
         className={`max-w-7xls container mx-auto grid gap-12 sm:gap-0 h-full ${
           image ? "md:grid-cols-[60%_40%]" : "md:grid-cols-1"
