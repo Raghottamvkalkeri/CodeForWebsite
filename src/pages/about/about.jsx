@@ -52,7 +52,7 @@ const AboutUs = () => {
       <BannerSection {...bannerData} />
 
       {/* 🔹 Intro Content */}
-      <section className="bg-white text-slate-800   py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
+      <section className="bg-white text-slate-800 max-w-10xl  py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
 
         <div className="container mx-auto px-4s">
           <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
@@ -65,7 +65,7 @@ const AboutUs = () => {
               Team aveto
             </h3>
           </div>
-          <div className="max-w-7xls mx-auto mt-10">
+          <div className="max-w-6xl xl:max-w-6xl 2xl:max-w-6xl mx-auto mt-10">
           <TeamCarousel />
 
 
@@ -85,13 +85,13 @@ const AboutUs = () => {
                   <img
                     src={leader.img}
                     alt={leader.name}
-                    className="w-60 h-60 object-cover rounded-xl shadow-md"
+                    className="w-full max-w-[240px] h-60 object-cover rounded-xl shadow-md mx-auto"
                   />
                   <h4 className="mt-4 p-text text-[16px] !font-semibold">
                     {leader.name}
                   </h4>
                   <p className="caption-text-medium text-[14px] text-gray-600">{leader.title}</p>
-                  
+
                 </div>
               ))}
             </div>
@@ -117,7 +117,7 @@ const AboutUs = () => {
 
       <section className="bg-white py-0 px-6 md:px-20 lg:px-80 xl:px-80 2xl:px-80">
       <div className="container mx-auto">
-        
+
       </div>
       </section>
 <div className="relative bg-[#edefeb] !mt-[64px]s  pt-10 pb-10 h-80 bg-left bg-cover bg-no-repeat">
