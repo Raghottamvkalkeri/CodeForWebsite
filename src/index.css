@@ -98,7 +98,7 @@
   }
   /* Aplied for all h1 to h3 */
 
-  
+
   p {
     font-family: 'Inter', sans-serif !important;
   }
@@ -178,7 +178,7 @@
 }
 h1, h2, h3, h4, h5, h6 {
   @apply font-bitter;
-} 
+}
 p{
   @apply font-roboto ;
 }
@@ -203,7 +203,7 @@ h6 {
 /* :root {
   font-family: "Bitter", serif;
 } */
-/* 
+/*
 a {
   font-weight: 500;
   color: #646cff;

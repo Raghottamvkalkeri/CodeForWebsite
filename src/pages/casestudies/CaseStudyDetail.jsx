@@ -41,7 +41,7 @@ const CaseStudyDetail = () => {
             {/* 🔹 Banner Section */}
             {/*<BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} />*/}
 
-            <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
+            <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40  mt-10">
                 <div className="order-2 lg:order-1">
                     <h4 className="text-sm font-semibold text-slate-600 mb-2 uppercase tracking-wide">
                         Case Study

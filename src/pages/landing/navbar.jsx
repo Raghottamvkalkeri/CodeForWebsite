@@ -56,7 +56,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-white shadows-md transition-transform duration-300  ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
+      className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300  ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
         }`}
     >
       <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8 ml-30">

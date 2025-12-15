@@ -61,11 +61,11 @@ const AboutUs = () => {
           {/* Team Aveto */}
           <div className="mt-16">
             {/* <h2 className="h1">Our</h2> */}
-            <h3 className="page-subheader">
+            <h3 className="page-subheader ">
               Team aveto
             </h3>
           </div>
-          <div className="max-w-7xls mx-auto ">
+          <div className="max-w-7xls mx-auto mt-10">
           <TeamCarousel />
 
 

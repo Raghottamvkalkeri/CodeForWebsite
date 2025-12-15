@@ -356,6 +356,7 @@ const CaseStudyPage2 = () => {
   }, [page]);
 
   const handleCardClick = (study) => {
+      console.log("Clicked slug:", study.slug, "ID:", study.id);
     const encodedTitle = encodeURIComponent(study.slug);
     location.href = `/case-studies/${encodedTitle}`;
   };
