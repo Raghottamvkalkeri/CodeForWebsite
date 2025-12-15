@@ -8,6 +8,8 @@ const CaseStudyDetail = () => {
     const decodedTitle = decodeURIComponent(title);
     const [caseStudy, setCaseStudy] = useState(null);
     const { data, loading, error } = useBanner();
+    const [hasMoreCaseStudies, setHasMoreCaseStudies] = useState(false);
+
 
     useEffect(() => {
         fetch(`https://avetoconsulting.com/apis/casestudies.php`)
@@ -114,12 +116,21 @@ const CaseStudyDetail = () => {
                 </div>
             </section>
             <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
-            <h4 className="page-subheader mb-4">
-                    Discover More Case Studies 
+
+                {hasMoreCaseStudies && (
+                    <h4 className="page-subheader mb-4">
+                        Discover More Case Studies
                     </h4>
-                   
-                <CaseStudyCarouselPage categoryId={caseStudy.category_id} skipId={caseStudy.id} />
+                )}
+
+                <CaseStudyCarouselPage
+                    categoryId={caseStudy.category_id}
+                    skipId={caseStudy.id}
+                    onDataAvailable={setHasMoreCaseStudies}
+                />
+
             </section>
+
         </div>
     );
 };

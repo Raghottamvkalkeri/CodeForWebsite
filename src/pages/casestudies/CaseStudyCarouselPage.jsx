@@ -5,7 +5,7 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CaseCard from "../../components/caseCard";
 
-const CaseStudyCarouselPage = ({ categoryId = 0 , skipId }) => {
+const CaseStudyCarouselPage = ({ categoryId = 0, skipId, onDataAvailable }) => {
   const [caseStudies, setCaseStudies] = useState([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
@@ -13,35 +13,48 @@ const CaseStudyCarouselPage = ({ categoryId = 0 , skipId }) => {
   const [maxHeight, setMaxHeight] = useState(0);
   const swiperRef = useRef(null);
 
-  const fetchCaseStudies = async (pageNum = 1) => {
-    if (loadingMore || !hasMore) return;
-    setLoadingMore(true);
+    const fetchCaseStudies = async (pageNum = 1) => {
+        if (loadingMore || !hasMore) return;
+        setLoadingMore(true);
 
-    const perPage = skipId ? 7 : 6; // Fetch an extra item if skipping one
+        const perPage = skipId ? 7 : 6;
 
-    try {
-      const res = await fetch(
-        `https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=${perPage}&category=${categoryId}`
-      );
-      const data = await res.json();
+        try {
+            const res = await fetch(
+                `https://avetoconsulting.com/apis/casestudiespagination.php?page=${pageNum}&per_page=${perPage}&category=${categoryId}`
+            );
+            const data = await res.json();
 
-      if (data.data && data.data.length > 0) {
-        setCaseStudies((prev) => {
-          const newData = data.data.filter(
-            (item) => !prev.some((p) => p.id === item.id)
-          );
-          return [...prev, ...newData];
-        });
-        setHasMore(pageNum < data.total_pages);
-      } else {
-        setHasMore(false);
-      }
-    } catch (err) {
-      console.error("Error fetching case studies:", err);
-    } finally {
-      setLoadingMore(false);
-    }
-  };
+            if (data.data && data.data.length > 0) {
+                setCaseStudies((prev) => {
+                    const newData = data.data.filter(
+                        (item) => !prev.some((p) => p.id === item.id)
+                    );
+
+                    const merged = [...prev, ...newData];
+
+                    // ✅ AFTER skipId filtering
+                    const visibleItems = merged.filter(
+                        (item) => Number(item.id) !== Number(skipId)
+                    );
+
+                    // ✅ notify parent ONCE
+                    onDataAvailable?.(visibleItems.length > 0);
+
+                    return merged;
+                });
+
+                setHasMore(pageNum < data.total_pages);
+            } else {
+                setHasMore(false);
+                onDataAvailable?.(false);
+            }
+        } catch (err) {
+            console.error("Error fetching case studies:", err);
+        } finally {
+            setLoadingMore(false);
+        }
+    };
 
   useEffect(() => {
     setCaseStudies([]);
