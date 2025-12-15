@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useLocation, useParams } from "react-router-dom";
 import BannerSection from "../../components/BannerSection";
@@ -47,7 +47,7 @@ const ServicesPage = () => {
           subtitle={data.banner?.subtitle}
           title={data.banner?.title}
           description={
-            service?.toLowerCase() === "custom-solution"
+            service?.toLowerCase() === "custom solution"
               ? ''
               : data.banner?.description
           }
@@ -58,7 +58,7 @@ const ServicesPage = () => {
 
         {/* Service Cards */}
         <section className="bg-white py-16 px-6 md:px-40 relative">
-          {service?.toLowerCase() === "custom-solution" && (
+          {service?.toLowerCase() === "custom solution" && (
 
             <div className="container mx-auto">
               <p className=" text-left page-paragraph mt-4s mb-4" dangerouslySetInnerHTML={{ __html: data.banner?.description }} />

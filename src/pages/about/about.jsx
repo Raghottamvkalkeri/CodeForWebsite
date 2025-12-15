@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "swiper/css";
 import "swiper/css/grid";
 import "swiper/css/navigation";
@@ -54,7 +54,7 @@ const AboutUs = () => {
       {/* 🔹 Intro Content */}
       <section className="bg-white text-slate-800 max-w-10xl  py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
 
-        <div className="container mx-auto px-4s">
+        <div className="container mx-auto">
           <p class=" text-left page-paragraph mt-4s mb-4"><p class="font-bold page-subheader"></p>
             <span class="font-bolds">{data.description}</span></p>
 
@@ -67,7 +67,7 @@ const AboutUs = () => {
           </div>
           <div className="max-w-7xls mx-auto mt-10">
           <TeamCarousel />
-
+          </div>
 
 
             {/* Leadership Title */}
@@ -81,11 +81,11 @@ const AboutUs = () => {
             {/* Leadership Grid */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center mb-10">
               {leaders.map((leader, index) => (
-                <div onClick={loadLinkedIn(leader.linkedIn)} key={index} className="flex flex-col items-center cursor-pointer">
+                <div onClick={loadLinkedIn(leader.linkedIn)} key={index} className="flex flex-col items-start cursor-pointer">
                   <img
                     src={leader.img}
                     alt={leader.name}
-                    className="w-60 h-60 object-cover rounded-xl shadow-md"
+                    className="w-100 h-100 lg:w-80 lg:h-80 md:w-80 md:h-80 sm:w-60 sm:h-60 object-cover rounded-xl shadow-md"
                   />
                   <h4 className="mt-4 p-text text-[16px] !font-semibold">
                     {leader.name}
@@ -101,7 +101,7 @@ const AboutUs = () => {
 
 
 
-          </div>
+          
         </div>
 
 
