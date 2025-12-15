@@ -65,7 +65,7 @@ const AboutUs = () => {
               Team aveto
             </h3>
           </div>
-          <div className="max-w-6xl xl:max-w-6xl 2xl:max-w-6xl mx-auto mt-10">
+          <div className="max-w-7xls mx-auto mt-10">
           <TeamCarousel />
 
 
@@ -85,7 +85,7 @@ const AboutUs = () => {
                   <img
                     src={leader.img}
                     alt={leader.name}
-                    className="w-full max-w-[240px] h-60 object-cover rounded-xl shadow-md mx-auto"
+                    className="w-60 h-60 object-cover rounded-xl shadow-md"
                   />
                   <h4 className="mt-4 p-text text-[16px] !font-semibold">
                     {leader.name}
