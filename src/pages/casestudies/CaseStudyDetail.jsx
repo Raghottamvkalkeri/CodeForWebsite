@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useBanner } from "../../context/BannerContext";
 import CaseStudyCarouselPage from "./CaseStudyCarouselPage";
+ import BannerSection from '../../components/BannerSection';
+
 
 const CaseStudyDetail = () => {
     const { title } = useParams();
@@ -41,10 +43,12 @@ const CaseStudyDetail = () => {
     return (
         <div className="w-full">
             {/* 🔹 Banner Section */}
-            {/*<BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} />*/}
+            {/* <BannerSection title={caseStudy.title} subtitle={''} image={caseStudy.thumbnail_image} /> */}
+                  {/* <BannerSection title={data.title} subtitle={data.subtitle} image={data.image} /> */}
+            
 
             <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40  mt-10">
-                <div className="order-2 lg:order-1">
+                {/* <div className="order-2 lg:order-1">
                     <h4 className="text-sm font-semibold text-slate-600 mb-2 uppercase tracking-wide">
                         Case Study
                     </h4>
@@ -64,10 +68,42 @@ const CaseStudyDetail = () => {
                             className="w-full h-64 md:h-72 lg:h-80 overflow-hidden rounded-lg shadow-md object-cover object-center"
                         />
                     </div>
-                </div>
+                </div> */}
+ <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-16 mb-24 items-start">
+
+  {/* LEFT – TEXT (70%) */}
+  <div className="order-2 lg:order-1 lg:w-[60%] space-y-4">
+
+    <h4 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+      Case Study
+    </h4>
+
+    <h2 className="page-subheader leading-tight">
+      {caseStudy.title}
+    </h2>
+
+    <p className=" page-paragraph text-slate-700 max-w-4xl leading-relaxed pt-2">
+      {caseStudy.subtitle}
+    </p>
+
+  </div>
+
+  {/* RIGHT – IMAGE (30%) */}
+  <div className="order-1 lg:order-2 lg:w-[40%] h-64 md:h-72 lg:h-[260px] rounded-xl overflow-hidden shadow-lg">
+
+    <img
+      src={caseStudy.image}
+      alt={caseStudy.title}
+      className="w-full h-full object-cover object-center"
+    />
+
+  </div>
+
+</div>
+
 
                 {/* Details Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 md:gap-y-12 items-start">
+                {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 md:gap-y-12 items-start">
                     <div className="space-y-10">
                         <section>
                             <h3 className="text-xl font-semibold text-slate-800 mb-4">Challenge</h3>
@@ -78,7 +114,19 @@ const CaseStudyDetail = () => {
                                 }}
                             />
                         </section>
+                        <section>
+                            <h3 className="text-xl font-semibold text-slate-800 mb-4">Results</h3>
+                            <ul
+                                className="text-slate-600 page-paragraph leading-relaxed ml-5"
+                                dangerouslySetInnerHTML={{
+                                    __html: renderListContent(caseStudy.details?.results),
+                                }}
+                            />
+                        </section>
+    
+                    </div>
 
+                    <div className="space-y-10">
                         <section>
                             <h3 className="text-xl font-semibold text-slate-800 mb-4">The Solution</h3>
                             <ul
@@ -100,20 +148,68 @@ const CaseStudyDetail = () => {
                                 />
                             </section>
                         )}
+                        
                     </div>
+                </div> */}
 
-                    <div className="space-y-10">
-                        <section>
-                            <h3 className="text-xl font-semibold text-slate-800 mb-4">Results</h3>
-                            <ul
-                                className="text-slate-600 page-paragraph leading-relaxed ml-5"
-                                dangerouslySetInnerHTML={{
-                                    __html: renderListContent(caseStudy.details?.results),
-                                }}
-                            />
-                        </section>
-                    </div>
-                </div>
+     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+
+  {/* Row 1 – Challenge */}
+  <section>
+    <h3 className="text-xl font-semibold text-slate-800 mb-4">
+      Challenge
+    </h3>
+    <ul
+      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      dangerouslySetInnerHTML={{
+        __html: renderListContent(caseStudy.details?.challenge),
+      }}
+    />
+  </section>
+
+  {/* Row 1 – Solution */}
+  <section>
+    <h3 className="text-xl font-semibold text-slate-800 mb-4">
+      The Solution
+    </h3>
+    <ul
+      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      dangerouslySetInnerHTML={{
+        __html: renderListContent(caseStudy.details?.solution),
+      }}
+    />
+  </section>
+
+  {/* Row 2 – Results */}
+  <section>
+    <h3 className="text-xl font-semibold text-slate-800 mb-4">
+      Results
+    </h3>
+    <ul
+      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      dangerouslySetInnerHTML={{
+        __html: renderListContent(caseStudy.details?.results),
+      }}
+    />
+  </section>
+
+  {/* Row 2 – Technologies */}
+  {caseStudy.technologies && (
+    <section>
+      <h3 className="text-xl font-semibold text-slate-800 mb-4">
+        Technologies Used
+      </h3>
+      <ul
+        className="text-slate-600 page-paragraph leading-relaxed ml-5"
+        dangerouslySetInnerHTML={{
+          __html: renderListContent(caseStudy.technologies),
+        }}
+      />
+    </section>
+  )}
+
+</div>
+
             </section>
             <section className="bg-white text-slate-800 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
 
