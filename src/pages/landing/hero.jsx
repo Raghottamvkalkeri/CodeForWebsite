@@ -76,10 +76,10 @@ const Hero = () => {
   <section className="min-h-screen flex items-center bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
   
 
-  <div className="w-full min-h-screen container mx-auto grid md:grid-cols-[60%_40%] gap-12 items-center py-12">
+  <div className="w-full min-h-screen container mx-auto grid md:grid-cols-[70%_30%] gap-15 items-center py-12">
 
   
-  <div className="flex flex-col justify-center">
+  <div className="flex flex-col justify-center ft-header">
     <h1 className="header mb-12 leading-[1.25] text-[42px] md:text-[54px] lg:text-[62px]">
       Experts in Enterprise Platforms. <br /> 
       Driving real outcomes through <br /> dependable delivery.
@@ -99,7 +99,8 @@ const Hero = () => {
     <img
       src={dots}
       alt="Aveto Dots"
-      className="rounded-2xl shadow-lgs object-cover h-full max-h-[80vh] w-auto"
+      className="rounded-2xls shadow-lgs  object-cover w-auto max-w-fit h-full"
+       classNames="rounded-2xls shadow-lgs w-fulls max-w-md object-covers w-60"
     />
   </div>
 

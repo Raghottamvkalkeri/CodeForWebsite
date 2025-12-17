@@ -11,7 +11,7 @@ export default function BannerSection({ subtitle, title, description, image }) {
     <section className={customSolutinon?"bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[500px] md:h-[425px]":"bg-gray-50 py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40 mt-10 lg:h-[425px] md:h-[425px]"}>
       <div
         className={`max-w-7xls container mx-auto grid gap-12 sm:gap-0 h-full ${
-          image ? "md:grid-cols-[60%_40%]" : "md:grid-cols-1"
+          image ? "md:grid-cols-[70%_30%]" : "md:grid-cols-1"
         }`}
       >
         {/* Left (Text) */}

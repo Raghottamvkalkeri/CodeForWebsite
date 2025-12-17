@@ -27,7 +27,7 @@
 /* Applid for header and hero banners for all pages */
 .ft-header {
   /* @apply lg:text-[54px] md:text-[48px] sm:text-[32px] !italic font-bold; */
-  @apply lg:text-[64px] md:text-[48px] sm:text-[32px] font-bold;
+  @apply 2xl:text-[64px] xl:text-[48px] lg:text-[40px] md:text-[32px] sm:text-[32px] font-bold;
   /* font-family: "Merriweather", serif !important; */
   font-family: "Inter", serif !important;
   font-optical-sizing: auto;
