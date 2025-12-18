@@ -73,14 +73,14 @@ const Hero = () => {
     //   </div>
     // </section>//bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40
 
-  <section className="min-h-screen flex items-center bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
+  <section className="lg:min-h-screen flex items-center bg-white py-16 px-6 md:px-20 lg:px-20 xl:px-40 2xl:px-40">
   
 
-  <div className="w-full min-h-screen container mx-auto grid md:grid-cols-[70%_30%] gap-15 items-center py-12">
+  <div className="w-full container mx-auto grid md:grid-cols-[70%_30%] lg:gap-15 items-center pt-12">
 
   
   <div className="flex flex-col justify-center ft-header">
-    <h1 className="header mb-12 leading-[1.25] text-[42px] md:text-[54px] lg:text-[62px]">
+    <h1 className="header lg:mb-12 leading-[1.25] text-[20px] md:text-[54px] lg:text-[62px]">
       Experts in Enterprise Platforms. <br /> 
       Driving real outcomes through <br /> dependable delivery.
     </h1>
@@ -89,7 +89,7 @@ const Hero = () => {
       We are AVETO
     </h1>
 
-    <h5 className="s-header text-[30px] md:text-[36px] lg:text-[40px] mt-4">
+    <h5 className="s-header text-[35px] md:text-[36px] lg:text-[40px] mt-4">
       Built to Solve
     </h5>
   </div>
@@ -99,7 +99,7 @@ const Hero = () => {
     <img
       src={dots}
       alt="Aveto Dots"
-      className="rounded-2xls shadow-lgs  object-cover w-auto max-w-fit h-full"
+      className="rounded-2xls shadow-lgs  object-cover w-full lg:w-auto xl:w-auto 2xl:w-auto  max-w-fit h-full"
        classNames="rounded-2xls shadow-lgs w-fulls max-w-md object-covers w-60"
     />
   </div>

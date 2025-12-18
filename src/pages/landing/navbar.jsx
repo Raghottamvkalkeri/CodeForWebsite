@@ -59,7 +59,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-50 bg-white shadow-md transition-transform duration-300  ${scrollDir === 'down' ? '-translate-y-full' : 'translate-y-0'
         }`}
     >
-      <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8 ml-30">
+      <div className="max-w-7xls mx-auto px-4 sm:px-6 lg:px-8 lg:ml-30">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="w-32">
