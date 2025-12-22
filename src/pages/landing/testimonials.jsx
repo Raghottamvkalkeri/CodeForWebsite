@@ -1,3 +1,4 @@
+import bgimg from '../../assets/bg.jpg';
 import Card3d from '../../components/card3d';
 
 const TestimonialsSection = () => {
@@ -62,13 +63,36 @@ const TestimonialsSection = () => {
                 </div>
 
                 {/* Middle Image */}
-                <div className="flex justify-center h-full w-full">
-                    <img
-                        src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg"
-                        alt="Our Values"
-                        className="rounded-xl shadow-xl w-full max-w-sm h-auto object-cover"
-                    />
-                </div>
+                <div className="h-full w-full flex">
+  <div
+    className="
+      w-full
+      h-full
+      min-h-[520px]
+      rounded-2xl
+      shadow-xl
+      bg-cover
+      bg-center
+      flex
+      flex-col
+      justify-center
+      px-10
+    "
+    style={{
+      backgroundImage: `url(${bgimg})`,
+    }}
+  >
+    <h3 className="text-white !text-[42px] font-bold leading-tight mb-6">
+      Outcome driven,<br />
+      customer proven.
+    </h3>
+
+    <p className="text-white/90 text-lg leading-relaxed max-w-sm  webft-header">
+      Long-term partnerships built on trust, ownership,
+      and outcomes.
+    </p>
+  </div>
+</div>
 
                 {/* Right Column (2 Cards) */}
                 <div className="space-y-8">
