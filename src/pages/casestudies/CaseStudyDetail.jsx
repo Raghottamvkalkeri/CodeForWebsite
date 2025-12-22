@@ -160,7 +160,7 @@ const CaseStudyDetail = () => {
       Challenge
     </h3>
     <ul
-      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      className="text-slate-600 page-paragraph [&>li]:leading-tight ml-5 space-y-3"
       dangerouslySetInnerHTML={{
         __html: renderListContent(caseStudy.details?.challenge),
       }}
@@ -173,7 +173,7 @@ const CaseStudyDetail = () => {
       The Solution
     </h3>
     <ul
-      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      className="text-slate-600 page-paragraph [&>li]:leading-tight ml-5 space-y-3"
       dangerouslySetInnerHTML={{
         __html: renderListContent(caseStudy.details?.solution),
       }}
@@ -186,7 +186,7 @@ const CaseStudyDetail = () => {
       Results
     </h3>
     <ul
-      className="text-slate-600 page-paragraph leading-relaxed ml-5"
+      className="text-slate-600 page-paragraph [&>li]:leading-tight ml-5 space-y-3"
       dangerouslySetInnerHTML={{
         __html: renderListContent(caseStudy.details?.results),
       }}
@@ -200,7 +200,7 @@ const CaseStudyDetail = () => {
         Technologies Used
       </h3>
       <ul
-        className="text-slate-600 page-paragraph leading-relaxed ml-5"
+        className="text-slate-600 page-paragraph [&>li]:leading-tight ml-5"
         dangerouslySetInnerHTML={{
           __html: renderListContent(caseStudy.technologies),
         }}

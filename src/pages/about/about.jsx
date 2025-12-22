@@ -85,7 +85,7 @@ const AboutUs = () => {
                   <img
                     src={leader.img}
                     alt={leader.name}
-                    className="w-100 h-100 lg:w-80 lg:h-80 md:w-80 md:h-80 sm:w-60 sm:h-60 object-cover rounded-xl shadow-md"
+                    className="w-60 h-60 lg:w-80 lg:h-80 md:w-80 md:h-80 sm:w-60 sm:h-60 object-cover rounded-xl shadow-md"
                   />
                   <h4 className="mt-4 p-text text-[16px] !font-semibold">
                     {leader.name}
