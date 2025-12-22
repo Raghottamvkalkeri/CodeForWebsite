@@ -27,7 +27,7 @@ const Card3d = ({ children, className = '' }) => {
       ref={cardRef}
       // onMouseMove={handleMouseMove}
       // onMouseLeave={resetRotation}
-      className={`w-full h-full bg-gradient-to-br from-white to-gray-100 rounded-[20px] shadow-2xl transition-transform ease-in duration-100 transform-style-3d perspective-[1000px] p-6 will-change-transform ${className}`}
+      className={`w-full h-full bg-gradient-to-br roundedhover from-white to-gray-100 rounded-[20px]s shadow-2xls transition-transforms ease-ins duration-100s transform-style-3ds perspective-[1000px]s p-6 will-change-transforms ${className}`}
     >
       {children}
     </div>

@@ -339,4 +339,8 @@ p {
   background-color : #f8f8f8;
 }
 
+.roundedhover {
+  @apply rounded-xl shadow hover:shadow-lg transition;
+}
+
 

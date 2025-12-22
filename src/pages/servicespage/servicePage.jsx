@@ -92,7 +92,7 @@ const ServicesPage = () => {
               return (
                 <div
                   key={i}
-                  className="p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition"
+                  className="p-6 bg-gray-50 roundedhover"
                 >
                   <h3 className="page-subheader">{card.title}</h3>
                   <p className="page-paragraph mt-2">{card.subtitle}</p>

@@ -58,14 +58,14 @@ const WhatWeDo = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch " >
           {/* Left Column */}
           <div className="flex flex-col gap-6 flex-1">
-            <div className="bg-white shadow-md rounded-xl p-6 h-full">
+            <div className="bg-white roundedhover p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">Data</h3>
               <p className="text-gray-600 page-paragraph">
                 Turn Insight into Impact. Harness the power of modern data platforms to drive confident decisions.
               </p>
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6 h-full">
+            <div className="bg-white roundedhover p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Custom Solutions
               </h3>
@@ -76,7 +76,7 @@ const WhatWeDo = () => {
           </div>
 
           {/* Center Column */}
-          <div className="bg-sky-500 text-white shadow-md rounded-xl p-6 flex flex-col justify-center">
+          <div className="bg-sky-500 text-white roundedhover p-6 flex flex-col justify-center">
             <h3 className="text-lg page-secondary-header font-semibold mb-3 !text-[24px]">
               Enterprise Platform <span className="font-light">at the Core.</span>
             </h3>
@@ -89,14 +89,14 @@ const WhatWeDo = () => {
 
           {/* Right Column */}
           <div className="flex flex-col gap-6 flex-1">
-            <div className="bg-white shadow-md rounded-xl p-6 h-full">
+            <div className="bg-white roundedhover p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">Integration</h3>
               <p className="text-gray-600 page-paragraph">
                 Connected by design. Seamless, secure connections across platforms, partners, and devices.
               </p>
             </div>
 
-            <div className="bg-white shadow-md rounded-xl p-6 h-full">
+            <div className="bg-white roundedhover p-6 h-full">
               <h3 className="page-secondary-header pb-[8px] !text-[24px]">
                 Artificial Intelligence
               </h3>

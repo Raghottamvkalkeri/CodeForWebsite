@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const PartnersSection = () => {
@@ -37,7 +37,7 @@ const PartnersSection = () => {
             partners.map((partner) => (
               <div
                 key={partner.id}
-                className="bg-white shadow-md rounded-xl p-6 flex flex-col justify-between hover:shadow-lg transition"
+                className="bg-white roundedhover p-6 flex flex-col justify-between "
               >
                 {/* Logo */}
                 {partner.logo_url && (
