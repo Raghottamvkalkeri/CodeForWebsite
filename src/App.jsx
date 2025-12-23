@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 
 import BackToTop from './components/BacktoTop';
 import ExploreMoreServices from './components/ExploreMoreServices';
+import PageShell from "./components/PageShell";
 import AboutUs from './pages/about/about';
 import CaseStudyPage2 from './pages/casestudies/caseStudies';
 import CaseStudyDetail from './pages/casestudies/CaseStudyDetail';
@@ -118,6 +119,8 @@ function App() {
         </script>
       </Helmet>
       <Navbar />
+      <main className="min-h-[70vh]">
+        <PageShell>
       <Routes>
         <Route path="/" element={<Landing />} />
         {/* <Route path="/services" element={<ServicesSection />} /> */}
@@ -129,6 +132,8 @@ function App() {
         <Route path="/partners/:slug" element={<PartnerDetail />} />
         <Route path="/case-studies/:title" element={<CaseStudyDetail />} />
       </Routes>
+      </PageShell>
+      </main>
       <BackToTop />
       {ShowExploreSerives &&
         <ExploreMoreServices />

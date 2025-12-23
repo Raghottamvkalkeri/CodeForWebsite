@@ -133,7 +133,7 @@ const ServicesPage = () => {
 
               <div className="max-w-6xls mx-autos grid gap-8 md:grid-cols-3">
                 {data.highlights?.map((point, i) => (
-                  <div key={i} className="p-6 bg-white rounded-xl shadow page-paragraph" dangerouslySetInnerHTML={{ __html: point }} />
+                  <div key={i} className="p-6 bg-white roundedhover page-paragraph" dangerouslySetInnerHTML={{ __html: point }} />
                   // <p className="page-paragraph">{point}</p>
 
                 ))}
