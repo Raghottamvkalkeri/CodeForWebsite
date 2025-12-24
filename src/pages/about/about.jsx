@@ -79,29 +79,57 @@ const AboutUs = () => {
             </div>
 
             {/* Leadership Grid */}
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center mb-10">
-              {leaders.map((leader, index) => (
-                <div onClick={loadLinkedIn(leader.linkedIn)} key={index} className="flex flex-col items-start cursor-pointer">
-                  <img
-                    src={leader.img}
-                    alt={leader.name}
-                    className="w-60 h-60 lg:w-100 lg:h-50 xl:w-100 xl:h-50 md:w-80 md:h-80 sm:w-60 sm:h-60 object-cover rounded-xl shadow-md"
-                  />
-                  <h4 className="mt-4 p-text text-[16px] !font-semibold">
-                    {leader.name}
-                  </h4>
-                  <p className="caption-text-medium text-[14px] text-gray-600">{leader.title}</p>
+           <div className=" flex justify-center">
+  <div className=" flex justify-center">
+ <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center ">
+  {leaders.map((leader, index) => {
+    // number of columns on lg
+    const cols = 5;
 
-                </div>
-              ))}
-            </div>
+    // total items
+    const total = leaders.length;
+
+    // items in last row
+    const remainder = total % cols;
+
+    // index where last row starts
+    const lastRowStart = total - remainder;
+
+    // center offset logic
+    let colStart = "";
+    if (remainder > 0 && index === lastRowStart) {
+      if (remainder === 1) colStart = "lg:col-start-3";
+      if (remainder === 2) colStart = "lg:col-start-3";
+      if (remainder === 3) colStart = "lg:col-start-2";
+      if (remainder === 4) colStart = "lg:col-start-2";
+    }
+
+    return (
+      <div
+        key={index}
+        onClick={loadLinkedIn(leader.linkedIn)}
+        className={`flex flex-col items-start cursor-pointer ${colStart}`}
+      >
+        <img
+          src={leader.img}
+          alt={leader.name}
+          className="w-60 h-60 md:w-80 md:h-80 lg:w-100 lg:h-50 xl:w-100 xl:h-50 object-cover rounded-xl shadow-md"
+        />
+        <h4 className="mt-4 p-text text-[16px] !font-semibold text-left">
+          {leader.name}
+        </h4>
+        <p className="caption-text-medium text-[14px] text-gray-600 text-left">
+          {leader.title}
+        </p>
+      </div>
+    );
+  })}
+</div>
 
 
+</div>
 
-
-
-
-          
+</div>      
         </div>
 
 
